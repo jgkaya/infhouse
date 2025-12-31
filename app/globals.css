@@ -123,3 +123,39 @@
     @apply bg-background text-foreground;
   }
 }
+@layer utilities {
+  @supports (color: color-mix(in lab, red, red)) {
+    .text-black\/40 {
+      color: color-mix(in oklab, var(--color-black) 40%, transparent) !important;
+      font-weight: 400 !important;
+      font-family: "Inter Tight", sans-serif !important;
+      font-size: 26px !important;
+    }
+  }
+
+  /* color-mix desteklemeyen tarayıcılar için fallback */
+  @supports not (color: color-mix(in lab, red, red)) {
+    .text-black\/40 {
+      color: rgba(0, 0, 0, 0.4) !important;
+      font-weight: 400 !important;
+      font-family: "Inter Tight", sans-serif !important;
+      font-size: 26px !important;
+    }
+  }
+
+  /* Chatbot animations */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
+}
