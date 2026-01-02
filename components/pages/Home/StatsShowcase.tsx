@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect, ReactNode } from "react";
+import Link from "next/link";
 
 // --- Mock Data ---
 
@@ -38,7 +39,7 @@ const CREATORS = [
         desc: "Yaratıcılığıyla dikkat çeken, video kancalarıyla etkileşim yaratan markaların gözde içerik üreticisi.",
         price: "750₺'den başlayan fiyatlarla",
     },
-        {
+    {
         image: "https://video.e-adam.net/download/web-videos/b9a0999b-b224-4b4a-bf8b-1c96c24321ea-1080.mp4",
         name: "Çağla Özer",
         rating: 4.7,
@@ -105,7 +106,7 @@ const INFLUENCERS = [
         desc: "Anne-çocuk kategorisinde içerik üretimi konusunda tecrübeli; samimi yaklaşımı ve izleyiciyle...",
         price: "150₺'den başlayan fiyatlarla",
     },
-        {
+    {
         image: "https://video.e-adam.net/download/web-videos/89ce72bb-ee19-4c0f-998a-f7b97b149210-1080.mp4",
         name: "Ebru Uludağ",
         rating: 4.9,
@@ -191,19 +192,39 @@ function SectionHeader({
     pinkText,
     blackText,
     description,
+    href,
 }: {
     pinkText: string;
     blackText: string;
     description: string;
+    href?: string;
 }) {
-    return (
-        <div className="mb-10">
+    const content = (
+        <>
             <h2 className="text-[42px] leading-[1.1] font-medium text-black tracking-tight font-['Instrument_Sans',sans-serif]">
                 <span className="text-[#FF707F] font-semibold">{pinkText}</span> {blackText}
             </h2>
             <p className="mt-4 text-[16px] text-gray-500 max-w-3xl leading-relaxed">
                 {description}
             </p>
+        </>
+    );
+
+    return (
+        <div className="mb-10">
+            {href ? (
+                <Link href={href} className="group block">
+                    <div className="transition-transform group-hover:translate-x-1 inline-block w-full">
+                        {content}
+                        <div className="mt-2 text-[#FF707F] font-semibold text-sm flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Tümünü Gör
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg>
+                        </div>
+                    </div>
+                </Link>
+            ) : content}
         </div>
     );
 }
@@ -497,6 +518,7 @@ export default function StatsShowcase() {
                 <SectionHeader
                     pinkText="+5.000"
                     blackText="İçerik Üreticisi"
+                    href="/icerik-ureticileri"
                     description="Sağlık, güzellik, moda, yaşam ve daha birçok kategoride; markanızı en iyi şekilde temsil edecek içerik üreticileriyle buluşturuyoruz. Güvenilir seçim modelimiz sayesinde yalnızca özenle seçilmiş ve yüksek performans gösteren içerik üreticileri ile çalışırsınız."
                 />
 
@@ -516,6 +538,7 @@ export default function StatsShowcase() {
                     <SectionHeader
                         pinkText="100'lerce"
                         blackText="Influencer İş Birliği"
+                        href="/markalar"
                         description="Sağlık, güzellik, moda, yaşam ve daha birçok kategoride; markanızı en iyi şekilde temsil edecek içerik üreticileriyle buluşturuyoruz. Güvenilir seçim modelimiz sayesinde yalnızca özenle seçilmiş ve yüksek performans gösteren içerik üreticileri ile çalışırsınız."
                     />
                     <CarouselRow>
@@ -532,6 +555,7 @@ export default function StatsShowcase() {
                     <SectionHeader
                         pinkText="15.000'den"
                         blackText="Fazla İçerik Üretimi Ve Teslimi"
+                        href="/calismalarimiz"
                         description="Bugüne kadar farklı kategorilerde 15.000+ içerik ürettik ve markalara teslim ettik. Bugün ise aylık 1.000'in üzerinde içerik üretimiyle markalar için ölçeklenebilir ve yüksek kaliteli UGC çözümleri sunuyoruz."
                     />
 

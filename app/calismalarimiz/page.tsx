@@ -1,11 +1,5 @@
-import Header from "@/components/Header";
-import { WorkHero } from "@/components/pages/WorkHero";
+import Calismalarimiz from "@/components/pages/Work/Calismalarimiz";
 
-export default function WorksPage() {
-    return (
-        <main className="bg-white min-h-screen">
-            <Header />
-            <WorkHero />
-        </main>
-    );
+export default function Page() {
+    return <Calismalarimiz />;
 }

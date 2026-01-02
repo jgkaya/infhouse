@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
@@ -27,10 +28,9 @@ const brandAvatars = [
 
 // Görseldeki gridin “hissi” için lideri Güzellik yaptım (ilk o settle ediyor)
 const leaderLabel = "Güzellik";
-
-const CARD_W = 96;
-const CARD_H = 80;
-const GAP = 10;
+const CARD_W = 90;
+const CARD_H = 76;
+const GAP = 8;
 
 // Görseldeki dizilime göre:
 // [Güzellik]   [ ]
@@ -156,13 +156,15 @@ function PlatformsCard() {
 
 function CategoryCard({ label, iconSrc }: { label: string; iconSrc?: string }) {
   return (
-    <img
-      src={iconSrc || ""}
-      alt={label}
-      className="w-[96px] h-[80px] rounded-[18px] bg-white px-3 py-2 ring-1 ring-black/10 shadow-[0_12px_28px_rgba(0,0,0,0.10)]"
-      draggable={false}
-      loading="lazy"
-    />
+    <div className="group relative w-[90px] h-[76px] rounded-[14px] bg-white ring-1 ring-black/5 shadow-[0_6px_20px_-4px_rgba(0,0,0,0.1)] hover:shadow-[0_12px_32px_-8px_rgba(0,0,0,0.14)] transition-all duration-300 overflow-hidden">
+      <img
+        src={iconSrc || ""}
+        alt={label}
+        className="w-full h-full object-contain p-3 grayscale-[0.05] group-hover:grayscale-0 transition-all duration-300"
+        draggable={false}
+        loading="lazy"
+      />
+    </div>
   );
 }
 
@@ -306,7 +308,7 @@ export default function HomeHero() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(34,197,94,0.12),transparent_55%),radial-gradient(ellipse_at_bottom,rgba(236,72,153,0.10),transparent_60%)]" />
 
       <div className="relative mx-auto max-w-[1180px] px-4 pt-28 pb-24 md:pt-32 md:pb-28">
-        <div className="grid items-center gap-10 md:grid-cols-2">
+        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-32">
           {/* LEFT */}
           <div className="md:pt-6">
             <motion.div
@@ -346,9 +348,13 @@ export default function HomeHero() {
               transition={{ duration: 0.75, ease, delay: 0.05 }}
               className="mt-7 text-[44px] leading-[1.03] md:text-[44px] md:leading-[52px] font-[500] font-['Instrument_Sans',sans-serif] text-black"
             >
-              <GradientStat>+500</GradientStat> markanın tercihi,
+              <Link href="/markalar" className="hover:underline decoration-[#FF6C7C]">
+                <GradientStat>+500</GradientStat> markanın tercihi,
+              </Link>
               <br />
-              <GradientStat>+5000</GradientStat> içerik üreticisinin gücü.
+              <Link href="/icerik-ureticileri" className="hover:underline decoration-[#FF6C7C]">
+                <GradientStat>+5000</GradientStat> içerik üreticisinin gücü.
+              </Link>
             </motion.h1>
 
             <motion.p
@@ -361,79 +367,77 @@ export default function HomeHero() {
             </motion.p>
 
             <div className="mt-8 flex flex-wrap md:flex-nowrap items-center gap-3">
-              <button className="group inline-flex items-center gap-3 h-[56px] rounded-full bg-[#232323] text-white pl-6 pr-4 text-[15px] font-semibold whitespace-nowrap shadow-[0_18px_44px_rgba(0,0,0,0.16)] hover:bg-[#1f1f1f] transition">
+              <button className="group inline-flex items-center gap-2.5 h-[50px] rounded-full bg-[#232323] text-white pl-6 pr-5 text-[15px] font-semibold whitespace-nowrap shadow-[0_18px_44px_rgba(0,0,0,0.16)] hover:bg-[#1f1f1f] transition">
                 Sizi arayalım
-                <span className="inline-grid h-10 w-10 place-items-center rounded-full bg-white/10 group-hover:bg-white/15 transition">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M10 17l5-5-5-5"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="translate-y-[0.5px]">
+                  <path
+                    d="M10 17l5-5-5-5"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </button>
 
-              <button className="inline-flex items-center justify-center h-[56px] rounded-full bg-white px-6 text-[15px] font-semibold text-black whitespace-nowrap ring-1 ring-black/10 shadow-[0_10px_26px_rgba(0,0,0,0.06)] hover:bg-white/95 transition">
+              <button className="inline-flex items-center justify-center h-[50px] rounded-full bg-white px-6 text-[15px] font-semibold text-black whitespace-nowrap ring-1 ring-black/10 shadow-[0_10px_26px_rgba(0,0,0,0.06)] hover:bg-white/95 transition">
                 Formu Doldurun
               </button>
 
-              <button className="inline-flex items-center justify-center h-[56px] rounded-full bg-emerald-200/70 px-6 text-[15px] font-semibold text-black whitespace-nowrap ring-1 ring-black/5 shadow-[0_10px_26px_rgba(0,0,0,0.06)] hover:bg-emerald-200 transition">
+              <button className="inline-flex items-center justify-center h-[50px] rounded-full bg-emerald-200/70 px-6 text-[15px] font-semibold text-black whitespace-nowrap ring-1 ring-black/5 shadow-[0_10px_26px_rgba(0,0,0,0.06)] hover:bg-emerald-200 transition">
                 Ücretsiz Sosyal Medya Analizi
               </button>
             </div>
           </div>
 
-          {/* RIGHT (Görseldeki gibi: büyük telefon solda/önde, küçük telefon sağda/arkada) */}
-          <div className="relative mx-auto mt-10 h-[500px] w-[440px] md:mt-0 md:h-[540px] md:w-[500px]">
-            {/* Back Phone (sağda/arkada) */}
+          {/* RIGHT SHORE (Visibility Restored - Ultra Minimalist) */}
+          <div className="relative mx-auto mt-10 h-[560px] w-[500px] md:mt-24 md:h-[650px] md:w-[580px]">
+            {/* Back Phone (Natural Staircase) */}
             <PhoneVideo
               src={VIDEO_2}
               start={startVideos}
               delay={0.14}
-              radius={42}
-              className="absolute right-[-10px] top-[80px] w-[220px] md:right-0 md:top-[90px] md:w-[250px] z-0 opacity-95"
+              radius={52}
+              className="absolute right-0 top-[120px] w-[210px] md:right-0 md:top-[120px] md:w-[280px] z-0 opacity-95"
             />
 
-            {/* Front Phone (solda/önde) */}
-            <div className="absolute left-0 top-0 z-10 w-[250px] md:left-0 md:w-[290px]">
+            {/* Front Phone (Centered Overlap) */}
+            <div className="absolute left-0 top-0 z-10 w-[240px] md:left-0 md:w-[300px]">
               <PhoneVideo
                 src={VIDEO_1}
                 start={startVideos}
                 delay={0.06}
-                radius={42}
+                radius={52}
                 className="relative w-full"
               />
 
-              {/* Brands card (üst-orta, iki telefonun üstünde “oturuyor” gibi) */}
+              {/* Brands card (Fine-tuned inside-left overlap) */}
               <motion.div
-                initial={{ opacity: 0, y: -20, scale: 0.9 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.7, delay: 0.4, ease }}
-                className="absolute left-1/2 top-[-16px] -translate-x-1/2 translate-x-[20px] z-30"
+                initial={{ opacity: 0, x: 60, scale: 0.9 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                transition={{ duration: 0.75, delay: 0.4, ease }}
+                className="absolute left-[-35px] top-[60px] z-30 w-max"
               >
                 <BrandsStatCard />
               </motion.div>
 
-              {/* Platforms card (sol-alt) */}
+              {/* Platforms card (Fine-tuned alignment) */}
               <motion.div
-                initial={{ opacity: 0, x: -30, scale: 0.9 }}
+                initial={{ opacity: 0, x: 60, scale: 0.9 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.5, ease }}
-                className="absolute left-[-8px] bottom-[80px] z-30"
+                className="absolute left-[-30px] bottom-[85px] z-30"
               >
                 <PlatformsCard />
               </motion.div>
             </div>
 
-            {/* Categories (sağ-alt dışarı taşan) */}
+            {/* Categories (Ultra Minimal Grid) */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.6, ease }}
-              className="absolute right-[-65px] bottom-[45px] z-30"
+              className="absolute right-[-10px] bottom-[-10px] z-30"
             >
               <div
                 className="relative"

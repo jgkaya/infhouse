@@ -1,11 +1,9 @@
-import Header from "@/components/Header";
-import CarouselInf from "@/components/pages/CarouselInf";
+import Markalar from "@/components/pages/Marka/Markalar";
 
-export default function MarkalarPage() {
+export default function Page() {
     return (
-        <main className="bg-white min-h-screen">
-            <Header />
-            <CarouselInf />
+        <main>
+            <Markalar />
         </main>
     );
 }
