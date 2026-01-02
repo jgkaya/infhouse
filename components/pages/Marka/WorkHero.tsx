@@ -13,7 +13,7 @@ const IMAGES = [
         alt: "Card Left",
         className: "w-32 md:w-56 z-0 opacity-90", // Larger
         finalTop: "50%",
-        left: "25%", // Closer in? Maybe keep out for framing
+        left: "15%", // Moved out from 25%
         rotate: -20,
         delay: 1.4 // 5th step (together with 6)
     },
@@ -36,7 +36,7 @@ const IMAGES = [
         alt: "Creator 4",
         className: "w-48 md:w-[400px] z-40",
         finalTop: "20%",
-        left: "58%", // Very close to 50% visually due to size
+        left: "65%", // Moved out from 58%
         translateX: "-50%",
         rotate: 5,
         delay: 0.5 // 2nd
@@ -47,7 +47,7 @@ const IMAGES = [
         alt: "Creator 1",
         className: "w-48 md:w-[380px] z-30",
         finalTop: "25%",
-        left: "42%", // Tucked behind
+        left: "35%", // Moved out from 42%
         translateX: "-50%",
         rotate: -5,
         delay: 0.8 // 3rd
@@ -58,7 +58,7 @@ const IMAGES = [
         alt: "Creator 2",
         className: "w-40 md:w-[340px] z-20",
         finalTop: "30%",
-        left: "36%",
+        left: "22%", // Moved out from 36%
         translateX: "-50%",
         rotate: -10,
         delay: 1.1 // 4th
@@ -70,7 +70,7 @@ const IMAGES = [
         alt: "Card Right",
         className: "w-32 md:w-56 z-0 opacity-90", // Larger
         finalTop: "40%",
-        left: "72%",
+        left: "82%", // Moved out from 72%
         rotate: 20,
         delay: 1.4 // 5th step
     }
