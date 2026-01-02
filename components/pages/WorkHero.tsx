@@ -6,79 +6,78 @@ import Image from "next/image";
 
 // Placeholder images - User should replace with real ones
 const IMAGES = [
-    // Floating Card Left (Last to appear)
+    // Floating Card Left
     {
         id: 5,
         src: "https://cdn.e-adam.net/InfHouse/cal0.png",
         alt: "Card Left",
-        className: "w-32 md:w-56 z-0 opacity-90", // Larger
-        finalTop: "50%",
-        left: "15%", // Moved out from 25%
-        rotate: -20,
-        delay: 1.4 // 5th step (together with 6)
+        className: "w-32 md:w-50 z-33 opacity-90",
+        finalTop: "35%", // Moved Up
+        left: "15%",
+        rotate: -4,
+        delay: 1.4
     },
-    // People Cluster - TIGHTLY PACKED & CENTERED
-    // Order of appearance: 3 -> 4 -> 1 -> 2
+    // People Cluster
     {
-        id: 3, // 1st to appear (Center, Front)
+        id: 3, // Center (Harun Bey)
         src: "https://cdn.e-adam.net/InfHouse/cal3.png",
         alt: "Creator 3",
-        className: "w-56 md:w-[500px] z-50", // Huge, Center
-        finalTop: "10%", // Higher up
-        left: "50%", // Absolute Center (will translate -50%)
+        className: "w-56 md:w-[500px] z-50",
+        finalTop: "5%", // Moved Up
+        left: "50%",
         translateX: "-50%",
         rotate: 0,
-        delay: 0.2 // 1st
+        delay: 0.2
     },
     {
-        id: 4, // 2nd to appear (Right of center)
+        id: 4, // Right (Woman) - User made this huge
         src: "https://cdn.e-adam.net/InfHouse/cal4.png",
         alt: "Creator 4",
-        className: "w-48 md:w-[400px] z-40",
-        finalTop: "20%",
-        left: "65%", // Moved out from 58%
+        className: "w-48 md:w-[700px] z-40",
+        finalTop: "-19%", // Moved Up to accommodate size
+        left: "58%", // Kept wide spacing
         translateX: "-50%",
         rotate: 5,
-        delay: 0.5 // 2nd
+        delay: 0.5
     },
     {
-        id: 1, // 3rd to appear (Left of center)
+        id: 1, // Left (Woman)
         src: "https://cdn.e-adam.net/InfHouse/cal1.png",
         alt: "Creator 1",
-        className: "w-48 md:w-[380px] z-30",
-        finalTop: "25%",
-        left: "35%", // Moved out from 42%
+        className: "w-48 md:w-[400px] z-30", // Increased size to match balance
+        finalTop: "3%", // Moved Up
+        left: "32%",
         translateX: "-50%",
-        rotate: -5,
-        delay: 0.8 // 3rd
+        rotate: -2,
+        delay: 0.8
     },
     {
-        id: 2, // 4th to appear (Farther Left)
+        id: 2, // Far Left (Man)
         src: "https://cdn.e-adam.net/InfHouse/cal2.png",
         alt: "Creator 2",
-        className: "w-40 md:w-[340px] z-20",
-        finalTop: "30%",
-        left: "22%", // Moved out from 36%
+        className: "w-40 md:w-[500px] z-20",
+        finalTop: "-7%", // Moved Up
+        left: "42%", // Moved slightly left
         translateX: "-50%",
-        rotate: -10,
-        delay: 1.1 // 4th
+        rotate: 2,
+        delay: 1.1
     },
-    // Floating Card Right (Last to appear)
+    // Floating Card Right
     {
         id: 6,
         src: "https://cdn.e-adam.net/InfHouse/cal5.png",
         alt: "Card Right",
-        className: "w-32 md:w-56 z-0 opacity-90", // Larger
-        finalTop: "40%",
-        left: "82%", // Moved out from 72%
-        rotate: 20,
-        delay: 1.4 // 5th step
+        className: "w-32 md:w-56 z-100 opacity-90",
+        finalTop: "25%", // Moved Up
+        left: "66%",
+        rotate: 15,
+        delay: 1.4
     }
 ];
 
 export const WorkHero = () => {
     return (
-        <section className="relative w-full h-[600px] md:h-[800px] bg-white overflow-hidden flex flex-col items-center justify-end pb-10">
+        <section className="relative w-full min-h-[750px] bg-white flex flex-col items-center justify-end pb-0">
 
             {/* SVG Path Layer - The Green Ribbon */}
             <div className="absolute inset-0 pointer-events-none z-0 scale-y-125 origin-bottom">
@@ -139,17 +138,32 @@ export const WorkHero = () => {
             </div>
 
 
-            {/* Bottom Text */}
+            {/* Bottom Text Label */}
             <motion.div
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.8 }}
-                className="relative z-30 text-center bg-white/40 backdrop-blur-sm px-8 py-4 rounded-3xl border border-white/40 mb-12"
+                // Added top-[180px], responsive width calc, and mx-auto
+                className="relative z-40 text-center bg-white px-10 py-5 rounded-full shadow-xl -mb-[60px] top-[180px] w-[90%] md:w-[calc(100%-300px)] lg:w-[calc(100%-170px)] mx-auto"
             >
-                <h1 className="text-3xl md:text-6xl font-bold text-red-500/90 tracking-tighter">
+                {/* Updated text size to [60px] on md screens */}
+                <h1 className="text-2xl md:text-[60px] font-bold text-red-500/90 tracking-tighter leading-tight">
                     Gerçek içerikler, <span className="text-red-300">ölçümlenebilir sonuçlar!</span>
                 </h1>
             </motion.div>
+
+            {/* Stats Section added below */}
+            <div className="relative z-30 w-full bg-[#fbfaf7] py-16 flex flex-col items-center justify-center text-center top-[150px] pt-32">
+                <div className="max-w-4xl px-4 space-y-4">
+                    <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-2xl md:text-4xl font-bold text-gray-800">
+                        <span><span className="text-red-400">+5.000</span> içerik üreticisi</span>
+                        <span><span className="text-red-400">+500</span> marka</span>
+                    </div>
+                    <p className="text-xl md:text-3xl font-medium text-gray-700 leading-relaxed">
+                        aylık ortalama <span className="text-red-400 font-bold">+10.000</span> UGC içeriği uçtan uca yönetilen süreçlerle hayata geçiyor.
+                    </p>
+                </div>
+            </div>
 
         </section>
     );
