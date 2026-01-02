@@ -7,8 +7,8 @@ const ANALIZ_PILL_URL = "https://cdn.e-adam.net/infhouse/sosyalmedya-analiz.png"
 
 const navItems = [
   { label: "İçerik Üreticileri", href: "#icerik-ureticileri" },
-  { label: "Markalar", href: "/markalar" },
-  { label: "Çalışmalarımız", href: "/calismalarimiz" },
+  { label: "Markalar", href: "#markalar" },
+  { label: "Çalışmalarımız", href: "#calismalarimiz" },
   { label: "Paketler", href: "#paketler" },
   { label: "İletişim", href: "#iletisim" },
 ];
