@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
@@ -347,9 +348,13 @@ export default function HomeHero() {
               transition={{ duration: 0.75, ease, delay: 0.05 }}
               className="mt-7 text-[44px] leading-[1.03] md:text-[44px] md:leading-[52px] font-[500] font-['Instrument_Sans',sans-serif] text-black"
             >
-              <GradientStat>+500</GradientStat> markanın tercihi,
+              <Link href="/markalar" className="hover:underline decoration-[#FF6C7C]">
+                <GradientStat>+500</GradientStat> markanın tercihi,
+              </Link>
               <br />
-              <GradientStat>+5000</GradientStat> içerik üreticisinin gücü.
+              <Link href="/icerik-ureticileri" className="hover:underline decoration-[#FF6C7C]">
+                <GradientStat>+5000</GradientStat> içerik üreticisinin gücü.
+              </Link>
             </motion.h1>
 
             <motion.p

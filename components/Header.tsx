@@ -1,16 +1,17 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 const LOGO_URL = "https://cdn.e-adam.net/infhouse/logo.png";
 const ANALIZ_PILL_URL = "https://cdn.e-adam.net/infhouse/sosyalmedya-analiz.png";
 
 const navItems = [
-  { label: "İçerik Üreticileri", href: "#icerik-ureticileri" },
-  { label: "Markalar", href: "#markalar" },
-  { label: "Çalışmalarımız", href: "#calismalarimiz" },
-  { label: "Paketler", href: "#paketler" },
-  { label: "İletişim", href: "#iletisim" },
+  { label: "İçerik Üreticileri", href: "/icerik-ureticileri" },
+  { label: "Markalar", href: "/markalar" },
+  { label: "Çalışmalarımız", href: "/calismalarimiz" },
+  { label: "Paketler", href: "/#paketler" },
+  { label: "İletişim", href: "/#iletisim" },
 ];
 
 export default function Header() {
@@ -27,7 +28,7 @@ export default function Header() {
           <div className="pointer-events-none absolute inset-0 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]" />
 
           {/* Logo */}
-          <a href="/" className="relative z-10 shrink-0 block pl-2">
+          <Link href="/" className="relative z-10 shrink-0 block pl-2">
             <img
               src={LOGO_URL}
               alt="Infhouse"
@@ -35,26 +36,26 @@ export default function Header() {
               draggable={false}
               loading="eager"
             />
-          </a>
+          </Link>
 
           {/* Center menu - Flexbox instead of absolute */}
           <nav className="hidden md:flex items-center justify-center flex-1 px-8 relative z-10">
             <ul className="m-0 p-0 list-none flex items-center gap-8 text-[15px] font-medium text-gray-500">
               {navItems.map((item) => (
                 <li key={item.href}>
-                  <a
+                  <Link
                     href={item.href}
                     className="hover:text-black transition-colors duration-200"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </nav>
 
           {/* CTA = tek görsel (hazır pill) */}
-          <a href="#analiz" className="relative z-10 shrink-0">
+          <Link href="/#analiz" className="relative z-10 shrink-0">
             <img
               src={ANALIZ_PILL_URL}
               alt="Sosyal Medya Analiz"
@@ -62,7 +63,7 @@ export default function Header() {
               draggable={false}
               loading="eager"
             />
-          </a>
+          </Link>
         </div>
       </motion.header>
     </>
