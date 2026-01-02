@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
@@ -310,7 +310,7 @@ export default function HomeHero() {
       <div className="relative mx-auto max-w-[1180px] px-4 pt-28 pb-24 md:pt-32 md:pb-28">
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-32">
           {/* LEFT */}
-          <div className="md:pt-6">
+          <div className="md:pt-[20%]">
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -348,13 +348,9 @@ export default function HomeHero() {
               transition={{ duration: 0.75, ease, delay: 0.05 }}
               className="mt-7 text-[44px] leading-[1.03] md:text-[44px] md:leading-[52px] font-[500] font-['Instrument_Sans',sans-serif] text-black"
             >
-              <Link href="/markalar" className="hover:underline decoration-[#FF6C7C]">
-                <GradientStat>+500</GradientStat> markanın tercihi,
-              </Link>
+              <GradientStat>+500</GradientStat> markanın tercihi,
               <br />
-              <Link href="/icerik-ureticileri" className="hover:underline decoration-[#FF6C7C]">
-                <GradientStat>+5000</GradientStat> içerik üreticisinin gücü.
-              </Link>
+              <GradientStat>+5000</GradientStat> içerik üreticisinin gücü.
             </motion.h1>
 
             <motion.p
@@ -398,7 +394,7 @@ export default function HomeHero() {
               start={startVideos}
               delay={0.14}
               radius={52}
-              className="absolute right-0 top-[120px] w-[210px] md:right-0 md:top-[120px] md:w-[280px] z-0 opacity-95"
+              className="absolute right-0 top-[120px] w-[210px] md:right-[10%] md:top-[120px] md:w-[280px] z-0 opacity-95"
             />
 
             {/* Front Phone (Centered Overlap) */}
@@ -416,7 +412,7 @@ export default function HomeHero() {
                 initial={{ opacity: 0, x: 60, scale: 0.9 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 transition={{ duration: 0.75, delay: 0.4, ease }}
-                className="absolute left-[-35px] top-[60px] z-30 w-max"
+                className="absolute left-[-42%] top-[60px] z-30 w-max"
               >
                 <BrandsStatCard />
               </motion.div>
@@ -426,7 +422,7 @@ export default function HomeHero() {
                 initial={{ opacity: 0, x: 60, scale: 0.9 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.5, ease }}
-                className="absolute left-[-30px] bottom-[85px] z-30"
+                className="absolute left-[-37px] bottom-[7%] z-30"
               >
                 <PlatformsCard />
               </motion.div>
