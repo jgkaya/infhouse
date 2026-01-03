@@ -11,12 +11,23 @@ const VIDEO_1 =
 const VIDEO_2 =
   "https://video.e-adam.net/download/web-videos/8103b25f-ab40-4149-bfa3-ac5371611f79-1080.mp4";
 
-const cats = [
-  { label: "Güzellik", iconSrc: "https://cdn.e-adam.net/infhouse/g%C3%BCzellik.png" },
-  { label: "Moda", iconSrc: "https://cdn.e-adam.net/infhouse/moda.png" },
-  { label: "Teknoloji", iconSrc: "https://cdn.e-adam.net/infhouse/teknoloji.png" },
-  { label: "Dekorasyon", iconSrc: "https://cdn.e-adam.net/infhouse/deco.png" },
-  { label: "Daha Fazlası", iconSrc: "https://cdn.e-adam.net/infhouse/more.png" },
+type CategoryItem = {
+  label: string;
+  iconSrc: string;
+  w: number;
+  h: number;
+  x: number;
+  y: number;
+  left?: number;
+  top?: number;
+};
+
+const cats: CategoryItem[] = [
+  { label: "Güzellik", iconSrc: "https://cdn.e-adam.net/infhouse/g%C3%BCzellik.png", w: 57, h: 63.02, x: 10, y: 0, left: 25, top: 0 },
+  { label: "Moda", iconSrc: "https://cdn.e-adam.net/infhouse/moda.png", w: 54.89, h: 59.67, x: 10, y: 84, left: -22, top: -7 },
+  { label: "Teknoloji", iconSrc: "https://cdn.e-adam.net/infhouse/teknoloji.png", w: 62.03, h: 59.67, x: 98, y: 84, left: -23, top: -7 },
+  { label: "Dekorasyon", iconSrc: "https://cdn.e-adam.net/infhouse/deco.png", w: 66.44, h: 66.38, x: 10, y: 168, left: 1, top: -18 },
+  { label: "Daha Fazlası", iconSrc: "https://cdn.e-adam.net/infhouse/more.png", w: 77.96, h: 59.67, x: 98, y: 168, left: -12, top: -13 },
 ];
 
 const brandAvatars = [
@@ -32,46 +43,22 @@ const CARD_W = 90;
 const CARD_H = 76;
 const GAP = 8;
 
-// Görseldeki dizilime göre:
-// [Güzellik]   [ ]
-// [Moda]       [Teknoloji]
-// [Dekorasyon] [Daha Fazlası]
-function getGridPos(label: string) {
-  switch (label) {
-    case "Güzellik":
-      return { col: 0, row: 0 };
-    case "Moda":
-      return { col: 0, row: 1 };
-    case "Teknoloji":
-      return { col: 1, row: 1 };
-    case "Dekorasyon":
-      return { col: 0, row: 2 };
-    case "Daha Fazlası":
-    default:
-      return { col: 1, row: 2 };
-  }
-}
-
-const catVariants = (label: string, idx: number) => {
-  const { col, row } = getGridPos(label);
-  const isLeader = label === leaderLabel;
-
-  const targetX = col * (CARD_W + GAP);
-  const targetY = row * (CARD_H + GAP);
+const catVariants = (c: CategoryItem, idx: number) => {
+  const isLeader = c.label === leaderLabel;
 
   return {
     hidden: {
       opacity: isLeader ? 1 : 0.85,
+      scale: isLeader ? 1 : 0.95,
       x: 0,
       y: 0,
-      scale: isLeader ? 1 : 0.95,
       zIndex: isLeader ? 50 : 40 - idx,
     },
     show: {
       opacity: 1,
-      x: targetX,
-      y: targetY,
       scale: 1,
+      x: c.x,
+      y: c.y,
       zIndex: 1,
       transition: { duration: 0.65, ease, delay: 0.15 + idx * 0.08 },
     },
@@ -154,13 +141,26 @@ function PlatformsCard() {
   );
 }
 
-function CategoryCard({ label, iconSrc }: { label: string; iconSrc?: string }) {
+function CategoryCard({
+  label,
+  iconSrc,
+  w = 90,
+  h = 76,
+}: {
+  label: string;
+  iconSrc?: string;
+  w?: number;
+  h?: number;
+}) {
   return (
-    <div className="group relative w-[90px] h-[76px] rounded-[14px] bg-white ring-1 ring-black/5 shadow-[0_6px_20px_-4px_rgba(0,0,0,0.1)] hover:shadow-[0_12px_32px_-8px_rgba(0,0,0,0.14)] transition-all duration-300 overflow-hidden">
+    <div
+      style={{ width: w, height: h }}
+      className="group relative transition-all duration-300 transform hover:scale-105"
+    >
       <img
         src={iconSrc || ""}
         alt={label}
-        className="w-full h-full object-contain p-3 grayscale-[0.05] group-hover:grayscale-0 transition-all duration-300"
+        className="w-full h-full object-contain grayscale-[0.05] group-hover:grayscale-0 transition-all duration-300"
         draggable={false}
         loading="lazy"
       />
@@ -445,12 +445,18 @@ export default function HomeHero() {
                 {orderedCats.map((c, idx) => (
                   <motion.div
                     key={c.label}
-                    variants={catVariants(c.label, idx)}
+                    variants={catVariants(c, idx)}
                     initial="hidden"
                     animate="show"
-                    className="absolute left-0 top-0"
+                    className="absolute"
+                    style={{ left: c.left ?? 0, top: c.top ?? 0 }}
                   >
-                    <CategoryCard label={c.label} iconSrc={c.iconSrc} />
+                    <CategoryCard
+                      label={c.label}
+                      iconSrc={c.iconSrc}
+                      w={c.w}
+                      h={c.h}
+                    />
                   </motion.div>
                 ))}
               </div>
