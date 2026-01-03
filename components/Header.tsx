@@ -75,7 +75,7 @@ export default function Header() {
           {/* Right Section: CTA & Hamburger */}
           <div className="flex items-center gap-2 md:gap-4 relative z-10 pr-1 md:pr-0">
             {/* Desktop CTA */}
-            <Link href="/#analiz" className="hidden md:block shrink-0">
+            <Link href="/sosyal-medya-analizi" className="hidden md:block shrink-0">
               <img
                 src={ANALIZ_PILL_URL}
                 alt="Sosyal Medya Analiz"
@@ -86,7 +86,7 @@ export default function Header() {
             </Link>
 
             {/* Mobile CTA (Small Pill-like icon) */}
-            <Link href="/#analiz" className="md:hidden flex items-center justify-center w-10 h-8 bg-[#E1F9E7] rounded-full mr-1">
+            <Link href="/sosyal-medya-analizi" className="md:hidden flex items-center justify-center w-10 h-8 bg-[#E1F9E7] rounded-full mr-1">
               <div className="w-5 h-5 flex items-center justify-center">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M10 2L3 8V18H7V12H13V18H17V8L10 2Z" fill="#FF5C5C" />
@@ -136,11 +136,12 @@ export default function Header() {
 
                 {/* Analyz Pill */}
                 <div className="mb-10">
-                  <Link href="/#analiz" onClick={() => setIsOpen(false)}>
+                  <Link href="/sosyal-medya-analizi" onClick={() => setIsOpen(false)}>
                     <img
                       src={ANALIZ_PILL_URL}
                       alt="Sosyal Medya Analiz"
                       className="h-12 w-auto"
+                      draggable={false}
                     />
                   </Link>
                 </div>
