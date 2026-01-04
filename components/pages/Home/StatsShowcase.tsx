@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+
 import { useRef, useState, useEffect, ReactNode } from "react";
 import Link from "next/link";
 
@@ -214,14 +214,9 @@ function SectionHeader({
         <div className="mb-10">
             {href ? (
                 <Link href={href} className="group block">
-                    <div className="transition-transform group-hover:translate-x-1 inline-block w-full">
+                    <div className="inline-block w-full">
                         {content}
-                        <div className="mt-2 text-[#FF707F] font-semibold text-sm flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                            Tümünü Gör
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                <path d="M9 18l6-6-6-6" />
-                            </svg>
-                        </div>
+
                     </div>
                 </Link>
             ) : content}
