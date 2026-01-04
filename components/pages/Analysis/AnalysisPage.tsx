@@ -8,23 +8,25 @@ import Header from "@/components/Header";
 
 function LeftColumn() {
     return (
-        <div className="flex flex-col h-full bg-white rounded-[32px] border border-gray-100 p-8 md:p-12 items-center text-center shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
+        <div className="flex flex-row md:flex-col h-full bg-white rounded-[32px] border border-gray-100 p-6 md:p-12 items-center md:text-center text-left shadow-[0_4px_20px_rgba(0,0,0,0.02)] gap-4 md:gap-0">
             {/* Graphic Area */}
-            <div className="w-full mb-10 flex justify-center">
+            <div className="w-1/3 md:w-full md:mb-10 flex flex-shrink-0 justify-center">
                 <img
                     src="https://cdn.e-adam.net/infhouse/Sosyal_medya_analiz_ba%C5%9Fvuru.gif"
                     alt="Analysis"
-                    className="w-full max-w-[300px] h-auto object-contain"
+                    className="w-full h-auto object-contain"
                 />
             </div>
 
             {/* Text Content */}
-            <h2 className="text-[32px] font-medium text-[#1A1A1A] mb-4 font-instrument tracking-tight">
-                Sosyal Medya Analizi
-            </h2>
-            <p className="text-[15px] leading-relaxed text-gray-500 max-w-sm">
-                Dijital platformlardaki etkileşim ve trafik verilerini inceleyerek marka performansını ölçer; elde edilen içgörülerle içerik stratejilerini optimize eder ve büyümeyi veriye dayalı şekilde destekler.
-            </p>
+            <div className="flex-1">
+                <h2 className="text-[18px] md:text-[32px] font-medium text-[#1A1A1A] mb-2 md:mb-4 font-instrument tracking-tight">
+                    Sosyal Medya Analizi
+                </h2>
+                <p className="text-[12px] md:text-[15px] leading-relaxed text-gray-500 max-w-sm">
+                    Dijital platformlardaki etkileşim ve trafik verilerini inceleyerek marka performansını ölçer; elde edilen içgörülerle içerik stratejilerini optimize eder ve büyümeyi veriye dayalı şekilde destekler.
+                </p>
+            </div>
         </div>
     );
 }
@@ -38,11 +40,11 @@ function AnalysisForm() {
     };
 
     return (
-        <div className="bg-white rounded-[32px] border border-gray-100 p-8 md:p-12 shadow-[0_4px_20px_rgba(0,0,0,0.02)] h-full">
+        <div className="bg-white rounded-[32px] border border-gray-100 p-6 md:p-12 shadow-[0_4px_20px_rgba(0,0,0,0.02)] h-full">
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
 
                 {/* Row 1: Name / Surname */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <div className="space-y-2">
                         <label className="text-[14px] font-bold text-[#1A1A1A]">
                             Ad <span className="text-red-500">*</span>
@@ -66,7 +68,7 @@ function AnalysisForm() {
                 </div>
 
                 {/* Row 2: Company / Email */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <div className="space-y-2">
                         <label className="text-[14px] font-bold text-[#1A1A1A]">
                             Şirket Adı <span className="text-red-500">*</span>
@@ -90,26 +92,13 @@ function AnalysisForm() {
                     </div>
                 </div>
 
-                {/* Row 3: Phone */}
-                <div className="space-y-2">
-                    <label className="text-[14px] font-bold text-[#1A1A1A]">
-                        Tel no <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                        {...register("phone", { required: true })}
-                        type="tel"
-                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-[12px] text-[14px] placeholder:text-gray-300 focus:outline-none focus:border-black transition-colors"
-                        placeholder="Telefon Numaranız"
-                    />
-                </div>
-
                 {/* Row 4: Tiktok URL */}
                 <div className="space-y-2">
                     <label className="text-[14px] font-bold text-[#1A1A1A]">
-                        Tiktok URL
+                        Tiktok URL <span className="text-red-500">*</span>
                     </label>
                     <input
-                        {...register("tiktokUrl")}
+                        {...register("tiktokUrl", { required: true })}
                         className="w-full px-4 py-3 bg-white border border-gray-200 rounded-[12px] text-[14px] placeholder:text-gray-300 focus:outline-none focus:border-black transition-colors"
                         placeholder="www.tiktok.com/@ugc"
                     />
@@ -118,10 +107,10 @@ function AnalysisForm() {
                 {/* Row 5: Instagram URL */}
                 <div className="space-y-2">
                     <label className="text-[14px] font-bold text-[#1A1A1A]">
-                        İnstagram URL <span className="text-red-500">*</span>
+                        Instagram URL
                     </label>
                     <input
-                        {...register("instagramUrl", { required: true })}
+                        {...register("instagramUrl")}
                         className="w-full px-4 py-3 bg-white border border-gray-200 rounded-[12px] text-[14px] placeholder:text-gray-300 focus:outline-none focus:border-black transition-colors"
                         placeholder="www.instagram.com/@ugc"
                     />
@@ -132,7 +121,7 @@ function AnalysisForm() {
                     type="submit"
                     className="w-full bg-[#1A1A1A] hover:bg-black text-white font-medium py-4 rounded-[16px] transition-colors mt-4 text-[15px]"
                 >
-                    Ücretsiz analiz için tıklayın
+                    Formu Gönder
                 </button>
 
             </form>

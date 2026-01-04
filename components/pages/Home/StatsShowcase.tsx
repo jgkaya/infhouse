@@ -246,7 +246,7 @@ function PersonCard({ data }: { data: typeof CREATORS[0] }) {
     };
 
     return (
-        <div className="group flex flex-col w-full min-w-[280px] overflow-hidden rounded-[24px] bg-white ring-1 ring-black/5 shadow-sm hover:shadow-xl transition-all duration-300">
+        <div className="group flex flex-col w-full overflow-hidden rounded-[16px] md:rounded-[24px] bg-white ring-1 ring-black/5 shadow-sm hover:shadow-xl transition-all duration-300">
             <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100 cursor-pointer" onClick={data.image.endsWith('.mp4') ? togglePlay : undefined}>
                 {data.image.endsWith('.mp4') ? (
                     <>
@@ -261,13 +261,13 @@ function PersonCard({ data }: { data: typeof CREATORS[0] }) {
                         />
                         {/* Play/Pause Button Overlay for PersonCard */}
                         <div className={`absolute inset-0 flex items-center justify-center z-10 transition-opacity duration-300 ${isPlaying ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'}`}>
-                            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/30 backdrop-blur-md transition-transform hover:scale-110">
+                            <div className="flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-white/30 backdrop-blur-md transition-transform hover:scale-110">
                                 {isPlaying ? (
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white" className="drop-shadow-md">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="white" className="drop-shadow-md md:w-5 md:h-5">
                                         <path d="M6 4h4v16H6zM14 4h4v16h-4z" />
                                     </svg>
                                 ) : (
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white" className="ml-1 drop-shadow-md">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="white" className="ml-1 drop-shadow-md md:w-5 md:h-5">
                                         <path d="M8 5v14l11-7z" />
                                     </svg>
                                 )}
@@ -282,28 +282,28 @@ function PersonCard({ data }: { data: typeof CREATORS[0] }) {
                     />
                 )}
             </div>
-            <div className="flex flex-1 flex-col p-5">
-                <div className="flex items-center justify-between">
-                    <h3 className="text-[18px] font-bold text-black">{data.name}</h3>
-                    <div className="flex items-center gap-1 text-[13px] font-semibold text-black">
+            <div className="flex flex-1 flex-col p-3 md:p-5">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-1">
+                    <h3 className="text-[15px] md:text-[18px] font-bold text-black leading-tight">{data.name}</h3>
+                    <div className="flex items-center gap-1 text-[12px] md:text-[13px] font-semibold text-black">
                         <span className="text-yellow-400">★</span> {data.rating}
                     </div>
                 </div>
-                <div className="mt-2 flex flex-wrap gap-2">
+                <div className="mt-2 flex flex-wrap gap-1.5 md:gap-2">
                     {data.tags.map((tag) => (
                         <span
                             key={tag}
-                            className="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-0.5 text-[10px] font-medium text-gray-500"
+                            className="rounded-full border border-gray-200 bg-gray-50 px-2 py-0.5 text-[9px] md:text-[10px] font-medium text-gray-500"
                         >
                             {tag}
                         </span>
                     ))}
                 </div>
-                <p className="mt-3 text-[13px] leading-relaxed text-gray-500 line-clamp-3">
+                <p className="mt-2 md:mt-3 text-[11px] md:text-[13px] leading-relaxed text-gray-500 line-clamp-3 md:line-clamp-3">
                     {data.desc}
                 </p>
-                <div className="mt-auto pt-5">
-                    <div className="rounded-full bg-[#232323] py-3 text-center text-[13px] font-medium text-white transition-colors hover:bg-black">
+                <div className="mt-auto pt-3 md:pt-5">
+                    <div className="rounded-full bg-[#232323] py-2 md:py-3 text-center text-[11px] md:text-[13px] font-medium text-white transition-colors hover:bg-black px-2">
                         {data.price}
                     </div>
                 </div>
@@ -404,20 +404,20 @@ function VideoStoryCard({ data }: { data: typeof VIDEO_STORIES[0] }) {
     };
 
     return (
-        <div className="group flex flex-col w-full min-w-[280px] overflow-hidden rounded-[24px] bg-white ring-1 ring-black/5 shadow-sm transition-all duration-300 hover:shadow-lg">
+        <div className="group flex flex-col w-full overflow-hidden rounded-[16px] md:rounded-[24px] bg-white ring-1 ring-black/5 shadow-sm transition-all duration-300 hover:shadow-lg">
             {/* Header */}
-            <div className="flex items-center justify-between p-5 pb-4">
-                <div>
-                    <div className="text-[10px] text-gray-500 font-medium mb-0.5">{data.userTitle}</div>
-                    <div className="text-[14px] font-bold text-black leading-tight">{data.userName}</div>
-                    <div className="flex text-yellow-400 text-[10px] mt-1 gap-0.5">
+            <div className="flex items-center justify-between p-3 md:p-5 pb-3 md:pb-4">
+                <div className="min-w-0 pr-2">
+                    <div className="text-[9px] md:text-[10px] text-gray-500 font-medium mb-0.5 truncate">{data.userTitle}</div>
+                    <div className="text-[13px] md:text-[14px] font-bold text-black leading-tight truncate">{data.userName}</div>
+                    <div className="flex text-yellow-400 text-[9px] md:text-[10px] mt-1 gap-0.5">
                         {'★'.repeat(5).split('').map((c, i) => <span key={i}>{c}</span>)}
                     </div>
                 </div>
                 <img
                     src={data.userAvatar}
                     alt={data.userName}
-                    className="h-10 w-10 rounded-full object-cover ring-1 ring-black/5"
+                    className="h-8 w-8 md:h-10 md:w-10 flex-none rounded-full object-cover ring-1 ring-black/5"
                 />
             </div>
 
@@ -433,21 +433,21 @@ function VideoStoryCard({ data }: { data: typeof VIDEO_STORIES[0] }) {
                 />
 
                 {/* Tag */}
-                <div className="absolute top-4 right-4 z-10 pointer-events-none">
-                    <span className="rounded-full bg-white/90 px-3 py-1.5 text-[10px] font-semibold text-black backdrop-blur-md shadow-sm">
+                <div className="absolute top-3 right-3 md:top-4 md:right-4 z-10 pointer-events-none">
+                    <span className="rounded-full bg-white/90 px-2.5 py-1 md:px-3 md:py-1.5 text-[9px] md:text-[10px] font-semibold text-black backdrop-blur-md shadow-sm">
                         {data.tag}
                     </span>
                 </div>
 
                 {/* Play/Pause Button Overlay */}
                 <div className={`absolute inset-0 flex items-center justify-center z-10 transition-opacity duration-300 ${isPlaying ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'}`}>
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white transition-transform hover:scale-110 shadow-[0px_0px_36.1px_0px_#AFF2AD]">
+                    <div className="flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-full bg-white transition-transform hover:scale-110 shadow-[0px_0px_36.1px_0px_#AFF2AD]">
                         {isPlaying ? (
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="#2E7D32" className="drop-shadow-sm">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="#2E7D32" className="drop-shadow-sm md:w-6 md:h-6">
                                 <path d="M6 4h4v16H6zM14 4h4v16h-4z" />
                             </svg>
                         ) : (
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="#2E7D32" className="ml-1 drop-shadow-sm">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="#2E7D32" className="ml-1 drop-shadow-sm md:w-6 md:h-6">
                                 <path d="M8 5v14l11-7z" />
                             </svg>
                         )}
@@ -475,7 +475,7 @@ function CarouselRow({ children, scrollStep = 320 }: { children: ReactNode, scro
 
     return (
         <div className="relative group">
-            {/* Left Button */}
+            {/* Left Button (Desktop) */}
             <button
                 onClick={scrollLeft}
                 className="absolute -left-5 top-1/2 z-10 -translate-x-full -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-[14px] bg-[#E8F5E9] text-[#2E7D32] transition hover:bg-[#C8E6C9] max-md:hidden"
@@ -485,7 +485,7 @@ function CarouselRow({ children, scrollStep = 320 }: { children: ReactNode, scro
                 </svg>
             </button>
 
-            {/* Right Button */}
+            {/* Right Button (Desktop) */}
             <button
                 onClick={scrollRight}
                 className="absolute -right-5 top-1/2 z-10 translate-x-full -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-[14px] bg-[#E8F5E9] text-[#2E7D32] transition hover:bg-[#C8E6C9] max-md:hidden"
@@ -498,10 +498,30 @@ function CarouselRow({ children, scrollStep = 320 }: { children: ReactNode, scro
             {/* Carousel */}
             <div
                 ref={scrollContainerRef}
-                className="flex gap-6 overflow-x-auto pb-8 scrollbar-hide snap-x"
+                className="flex gap-3 md:gap-6 overflow-x-auto pb-4 md:pb-8 scrollbar-hide snap-x"
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
                 {children}
+            </div>
+
+            {/* Mobile Navigation (Bottom) */}
+            <div className="flex justify-center gap-2 mt-4 md:hidden">
+                <button
+                    onClick={scrollLeft}
+                    className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#E8F5E9] text-[#2E7D32]"
+                >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M15 18l-6-6 6-6" />
+                    </svg>
+                </button>
+                <button
+                    onClick={scrollRight}
+                    className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#E8F5E9] text-[#2E7D32]"
+                >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                </button>
             </div>
         </div>
     )
@@ -524,7 +544,7 @@ export default function StatsShowcase() {
 
                 <CarouselRow>
                     {CREATORS.map((creator, i) => (
-                        <div key={i} className="w-[280px] flex-none snap-start sm:w-[calc(50%_-_12px)] lg:w-[calc(25%_-_18px)]">
+                        <div key={i} className="w-[calc(50%-6px)] md:w-[280px] flex-none snap-start lg:w-[calc(25%_-_18px)]">
                             <PersonCard data={creator} />
                         </div>
                     ))}
@@ -543,7 +563,7 @@ export default function StatsShowcase() {
                     />
                     <CarouselRow>
                         {INFLUENCERS.map((inf, i) => (
-                            <div key={i} className="w-[280px] flex-none snap-start sm:w-[calc(50%_-_12px)] lg:w-[calc(25%_-_18px)]">
+                            <div key={i} className="w-[calc(50%-6px)] md:w-[280px] flex-none snap-start lg:w-[calc(25%_-_18px)]">
                                 <PersonCard data={inf} />
                             </div>
                         ))}
@@ -561,7 +581,7 @@ export default function StatsShowcase() {
 
                     <CarouselRow>
                         {VIDEO_STORIES.map((story, i) => (
-                            <div key={i} className="w-[280px] flex-none snap-start sm:w-[calc(50%_-_12px)] lg:w-[calc(25%_-_18px)]">
+                            <div key={i} className="w-[calc(50%-6px)] md:w-[280px] flex-none snap-start lg:w-[calc(25%_-_18px)]">
                                 <VideoStoryCard data={story} />
                             </div>
                         ))}

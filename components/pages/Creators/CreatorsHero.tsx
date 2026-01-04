@@ -1,48 +1,55 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 interface BubbleProps {
     src?: string;
     size: number;
+    mobSize?: number;
     x: string;
     y: string;
+    mobX?: string;
+    mobY?: string;
     delay: number;
     zIndex?: number;
 }
 
 const bubbles: BubbleProps[] = [
     // Top Left
-    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik1.png", size: 140, x: "7%", y: "18%", delay: 0.4 },
+    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik1.png", size: 140, mobSize: 80, x: "7%", y: "18%", mobX: "10%", mobY: "10%", delay: 0.4 },
     // Inner Top Left
-    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik2.png", size: 150, x: "24%", y: "26%", delay: 0.5 },
+    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik2.png", size: 150, mobSize: 90, x: "24%", y: "26%", mobX: "20%", mobY: "18%", delay: 0.5 },
     // Bottom Left (Sunglasses)
-    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik4.png", size: 210, x: "2%", y: "63%", delay: 0.6 },
+    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik4.png", size: 210, mobSize: 110, x: "2%", y: "63%", mobX: "5%", mobY: "55%", delay: 0.6 },
     // Inner Bottom Left
-    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik3.png", size: 160, x: "22%", y: "86%", delay: 0.7 },
+    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik3.png", size: 160, mobSize: 80, x: "22%", y: "86%", mobX: "15%", mobY: "88%", delay: 0.7 },
 
     // Top Right
-    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik8.png", size: 160, x: "92%", y: "24%", delay: 0.45 },
+    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik8.png", size: 160, mobSize: 90, x: "92%", y: "24%", mobX: "90%", mobY: "12%", delay: 0.45 },
     // Inner Mid Right
-    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik5.png", size: 150, x: "76%", y: "40%", delay: 0.55 },
+    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik5.png", size: 150, mobSize: 85, x: "76%", y: "40%", mobX: "85%", mobY: "35%", delay: 0.55 },
     // Bottom Right
-    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik7.png", size: 180, x: "92%", y: "67%", delay: 0.75 },
+    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik7.png", size: 180, mobSize: 100, x: "92%", y: "67%", mobX: "90%", mobY: "65%", delay: 0.75 },
     // Inner Bottom Right
-    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik6.png", size: 140, x: "71%", y: "87%", delay: 0.65 },
+    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik6.png", size: 140, mobSize: 75, x: "71%", y: "87%", mobX: "80%", mobY: "88%", delay: 0.65 },
 ];
 
-function Bubble({ src, size, x, y, delay, zIndex = 20 }: BubbleProps) {
+function Bubble({ src, size, mobSize, x, y, mobX, mobY, delay, zIndex = 20, isMobile }: BubbleProps & { isMobile: boolean }) {
+    const finalSize = isMobile && mobSize ? mobSize : size;
+    const finalX = isMobile && mobX ? mobX : x;
+    const finalY = isMobile && mobY ? mobY : y;
+
     return (
         <motion.div
             initial={{ opacity: 0, scale: 0.5, left: "50%", top: "50%" }}
             whileInView={{
                 opacity: 1,
                 scale: 1,
-                left: x,
-                top: y,
+                left: finalX,
+                top: finalY,
             }}
             viewport={{ once: true }}
             whileHover={{ scale: 1.05, zIndex: 100 }}
@@ -52,8 +59,8 @@ function Bubble({ src, size, x, y, delay, zIndex = 20 }: BubbleProps) {
                 ease,
             }}
             style={{
-                width: size,
-                height: size,
+                width: finalSize,
+                height: finalSize,
                 zIndex,
             }}
             className="absolute -translate-x-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none"
@@ -69,26 +76,34 @@ function Bubble({ src, size, x, y, delay, zIndex = 20 }: BubbleProps) {
 
 export default function CreatorsHero() {
     const containerRef = useRef<HTMLDivElement>(null);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     return (
-        <section id="icerik-ureticileri" className="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#fbfaf7] py-20">
+        <section id="icerik-ureticileri" className="relative w-full min-h-[70vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#fbfaf7] py-12 md:py-20">
             {/* Background Gradients */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(34,197,94,0.08),transparent_50%),radial-gradient(ellipse_at_bottom,rgba(236,72,153,0.06),transparent_50%)]" />
 
-            <div ref={containerRef} className="relative w-full max-w-[1400px] h-[800px] mx-auto px-4">
+            <div ref={containerRef} className="relative w-full max-w-[1400px] h-[500px] md:h-[800px] mx-auto px-4">
                 {/* Bubbles */}
                 {bubbles.map((bubble, i) => (
-                    <Bubble key={i} {...bubble} />
+                    <Bubble key={i} {...bubble} isMobile={isMobile} />
                 ))}
 
                 {/* Center Content */}
-                <div className="relative z-50 flex flex-col items-center justify-center text-center max-w-[850px] mx-auto h-full space-y-8">
+                <div className="relative z-50 flex flex-col items-center justify-center text-center max-w-[850px] mx-auto h-full space-y-5 md:space-y-8">
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.1, ease }}
-                        className="text-[40px] font-medium leading-[57px] text-black tracking-[-0.05em] font-instrument px-4"
+                        className="text-[28px] leading-[1.15] md:text-[40px] font-medium md:leading-[57px] text-black tracking-[-0.05em] font-instrument px-4"
                     >
                         Infhouse&apos;ta <span className="text-[#34C759]">UGC üreticisi olmak için</span> <br />başvurun ve doğru markalarla güçlü <br />iş birlikleri kurun.
                     </motion.h1>
@@ -98,11 +113,11 @@ export default function CreatorsHero() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2, ease }}
-                        className="space-y-4 max-w-[600px] px-6"
+                        className="space-y-4 max-w-[600px] px-2 md:px-6"
                     >
-                        <p className="text-[16px] text-black/50 leading-none text-center font-normal tracking-[-0.02em] font-inter-tight">
-                            Infhouse, yetenekli içerik üreticilerini markalarla buluşturan,<br /> güvenilir ve performans odaklı bir UGC platformudur.<br />
-                            Kayıt olun, stilinize ve yeteneğinize uygun projelerde yer alın;<br /> süreç yönetimini bize bırakın, siz sadece sevdiğiniz şeye yani<br /> özgün ve etkili içerikler üretmeye odaklanın!
+                        <p className="text-[14px] md:text-[16px] text-black/50 leading-relaxed md:leading-none text-center font-normal tracking-[-0.02em] font-inter-tight">
+                            Infhouse, yetenekli içerik üreticilerini markalarla buluşturan,<br className="hidden md:block" /> güvenilir ve performans odaklı bir UGC platformudur.<br className="hidden md:block" />
+                            Kayıt olun, stilinize ve yeteneğinize uygun projelerde yer alın;<br className="hidden md:block" /> süreç yönetimini bize bırakın, siz sadece sevdiğiniz şeye yani<br className="hidden md:block" /> özgün ve etkili içerikler üretmeye odaklanın!
                         </p>
                     </motion.div>
 
@@ -116,7 +131,7 @@ export default function CreatorsHero() {
                             href="https://docs.google.com/forms/d/e/1FAIpQLSeEgkytxEfxtMVQmP95CUSCBCe7HrrETN2gfoRCUbfjkdfCnw/viewform"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group relative inline-flex items-center gap-2 h-12 px-8 bg-[#232323] text-white rounded-full text-[15px] font-semibold hover:bg-black transition-all"
+                            className="group relative inline-flex items-center gap-2 h-10 px-6 md:h-12 md:px-8 bg-[#232323] text-white rounded-full text-[13px] md:text-[15px] font-semibold hover:bg-black transition-all"
                         >
                             Şimdi Başvurun
                             <svg

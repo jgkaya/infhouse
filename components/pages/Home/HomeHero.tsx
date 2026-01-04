@@ -387,7 +387,7 @@ export default function HomeHero() {
           </div>
 
           {/* RIGHT SHORE (Visibility Restored - Ultra Minimalist) */}
-          <div className="relative mx-auto mt-10 h-[560px] w-[500px] md:mt-24 md:h-[650px] md:w-[580px]">
+          <div className="relative mx-auto mt-10 h-[560px] w-full max-w-[380px] md:max-w-none md:mt-24 md:h-[650px] md:w-[580px]">
             {/* Back Phone (Natural Staircase) */}
             <PhoneVideo
               src={VIDEO_2}
@@ -412,7 +412,7 @@ export default function HomeHero() {
                 initial={{ opacity: 0, x: 60, scale: 0.9 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 transition={{ duration: 0.75, delay: 0.4, ease }}
-                className="absolute left-[-42%] top-[60px] z-30 w-max"
+                className="absolute left-[-15px] md:left-[-42%] top-[60px] z-30 w-max"
               >
                 <BrandsStatCard />
               </motion.div>
@@ -422,7 +422,7 @@ export default function HomeHero() {
                 initial={{ opacity: 0, x: 60, scale: 0.9 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.5, ease }}
-                className="absolute left-[-37px] bottom-[7%] z-30"
+                className="absolute left-[-10px] md:left-[-37px] bottom-[7%] z-30"
               >
                 <PlatformsCard />
               </motion.div>
@@ -433,7 +433,7 @@ export default function HomeHero() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.6, ease }}
-              className="absolute right-[-10px] bottom-[-10px] z-30"
+              className="absolute right-0 md:right-[-10px] bottom-[-10px] z-30"
             >
               <div
                 className="relative"

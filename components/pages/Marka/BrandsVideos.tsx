@@ -156,28 +156,69 @@ function InfoCard() {
     );
 }
 
+function MobileInfoRow() {
+    return (
+        <div className="mb-6 lg:hidden bg-white rounded-[24px] border border-[#E6E6E6] p-5 shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
+            <div className="grid grid-cols-3 divide-x divide-[#E6E6E6]">
+                {/* Item 1 */}
+                <div className="flex flex-col pr-3">
+                    <div className="mb-3 flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] bg-[#E1F1E5] text-[#1E8E3E]">
+                        <Crown size={14} fill="currentColor" />
+                    </div>
+                    <p className="text-[10px] leading-[1.3] text-[#666666] font-medium tracking-tight">
+                        Zorlu bir inceleme sürecinden geçiyoruz, sadece en iyilerini seçiyoruz
+                    </p>
+                </div>
+
+                {/* Item 2 */}
+                <div className="flex flex-col px-3">
+                    <div className="mb-3 flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] bg-[#FFF8D6] text-[#B89825]">
+                        <Crown size={14} fill="currentColor" />
+                    </div>
+                    <p className="text-[10px] leading-[1.3] text-[#666666] font-medium tracking-tight">
+                        18 - 60+ yaş aralığındaki en yetenekli içerik üreticileri.
+                    </p>
+                </div>
+
+                {/* Item 3 */}
+                <div className="flex flex-col pl-3">
+                    <div className="mb-3 flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] bg-[#FFE1E4] text-[#FF4D63]">
+                        <Crown size={14} fill="currentColor" />
+                    </div>
+                    <p className="text-[10px] leading-[1.3] text-[#666666] font-medium tracking-tight">
+                        Çeşitli nişler. Sağlık, çocuklar, fitness, evcil hayvanlar, yiyecek ve daha fazlası.
+                    </p>
+                </div>
+            </div>
+        </div>
+    );
+}
+
 // --- Main Component ---
 
 export default function BrandsVideos() {
     return (
-        <section className="bg-[#fbfaf7] py-20 px-4 md:px-8">
+        <section className="bg-[#fbfaf7] py-12 md:py-20 px-4 md:px-8">
             <div className="mx-auto max-w-[1320px]">
                 {/* Header */}
-                <div className="text-center mb-12 sm:mb-16 px-4">
-                    <h2 className="text-[44px] md:text-[64px] font-medium tracking-tight font-instrument leading-[1.1]">
+                <div className="text-center mb-8 sm:mb-16 px-4">
+                    <h2 className="text-[32px] md:text-[64px] font-medium tracking-tight font-instrument leading-[1.1]">
                         <span className="text-[#1A1A1A]">Örnek</span>{" "}
                         <span className="text-[#FF9CA6]">Videolarımız</span>
                     </h2>
                 </div>
 
+                {/* Mobile Info Row */}
+                <MobileInfoRow />
+
                 {/* Grid Content */}
-                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
+                <div className="grid grid-cols-2 gap-2 sm:grid-cols-2 lg:grid-cols-5">
                     {VIDEO_STORIES.map((story, index) => (
-                        <div key={index} className="aspect-[9/16] w-full">
+                        <div key={index} className="aspect-[9/18] w-full">
                             <VideoStoryCard data={story} />
                         </div>
                     ))}
-                    <div className="aspect-[9/16] w-full">
+                    <div className="hidden lg:block aspect-[9/16] w-full">
                         <InfoCard />
                     </div>
                 </div>
