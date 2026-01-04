@@ -13,7 +13,7 @@ const navItems = [
   { label: "Markalar", href: "/markalar" },
   { label: "Çalışmalarımız", href: "/calismalarimiz" },
   { label: "Paketler", href: "/#paketler" },
-  { label: "İletişim", href: "/#iletisim" },
+  { label: "İletişim", href: "/iletisim" },
 ];
 
 export default function Header() {
