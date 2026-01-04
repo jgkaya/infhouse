@@ -121,6 +121,8 @@ export const CarouselInf = () => {
                         Markanızı güçlendirmek için, her içeriği ekip çalışması,
                         strateji ve titiz operasyonun birleşimiyle hayata geçiriyoruz.
                     </p>
+
+
                 </motion.div>
             </div>
 
@@ -155,6 +157,15 @@ export const CarouselInf = () => {
                         </div>
                     </motion.div>
                 ))}
+            </div>
+            {/* CTA Buttons */}
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+                <button className="h-[56px] px-10 rounded-full bg-[#1a1a1a] text-white font-semibold text-[16px] shadow-lg hover:bg-black transition-all active:scale-95">
+                    Sizi Arayalım
+                </button>
+                <button className="h-[56px] px-10 rounded-full bg-white text-[#1a1a1a] font-semibold text-[16px] ring-1 ring-black/10 shadow-lg hover:bg-gray-50 transition-all active:scale-95">
+                    Şimdi Başvurun
+                </button>
             </div>
         </section>
     );
