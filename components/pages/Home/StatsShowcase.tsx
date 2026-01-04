@@ -176,14 +176,6 @@ const VIDEO_STORIES = [
         brandLogo: "https://cdn.simpleicons.org/reebok/white",
         tag: "Güzellik ve Cilt Bakım",
     },
-    {
-        videoSrc: VIDEO_1,
-        userAvatar: "https://randomuser.me/api/portraits/women/45.jpg",
-        userName: "Ayşe Yılmaz",
-        userTitle: "Zara",
-        brandLogo: "https://cdn.simpleicons.org/zara/white",
-        tag: "Moda",
-    },
 ];
 
 // --- Sub Components ---
@@ -195,7 +187,7 @@ function SectionHeader({
     href,
 }: {
     pinkText: string;
-    blackText: string;
+    blackText: string | ReactNode;
     description: string;
     href?: string;
 }) {
@@ -417,7 +409,7 @@ function VideoStoryCard({ data }: { data: typeof VIDEO_STORIES[0] }) {
             </div>
 
             {/* Video Section */}
-            <div className="relative aspect-[4/5] w-full bg-black cursor-pointer" onClick={togglePlay}>
+            <div className="relative aspect-[9/14] w-full bg-black cursor-pointer" onClick={togglePlay}>
                 <video
                     ref={videoRef}
                     src={data.videoSrc}
@@ -569,18 +561,36 @@ export default function StatsShowcase() {
                 <div className="relative mt-32">
                     <SectionHeader
                         pinkText="15.000'den"
-                        blackText="Fazla İçerik Üretimi Ve Teslimi"
+                        blackText={
+                            <>
+                                Fazla
+                                <br />
+                                İçerik Üretimi Ve Teslimi
+                            </>
+                        }
                         href="/calismalarimiz"
                         description="Bugüne kadar farklı kategorilerde 15.000+ içerik ürettik ve markalara teslim ettik. Bugün ise aylık 1.000'in üzerinde içerik üretimiyle markalar için ölçeklenebilir ve yüksek kaliteli UGC çözümleri sunuyoruz."
                     />
 
-                    <CarouselRow>
+                    {/* Mobile Grid Layout */}
+                    <div className="grid grid-cols-2 gap-3 md:hidden">
                         {VIDEO_STORIES.map((story, i) => (
-                            <div key={i} className="w-[calc(50%-6px)] md:w-[280px] flex-none snap-start lg:w-[calc(25%_-_18px)]">
+                            <div key={i} className="w-full">
                                 <VideoStoryCard data={story} />
                             </div>
                         ))}
-                    </CarouselRow>
+                    </div>
+
+                    {/* Desktop Carousel Layout */}
+                    <div className="hidden md:block">
+                        <CarouselRow>
+                            {VIDEO_STORIES.map((story, i) => (
+                                <div key={i} className="w-[calc(50%-6px)] md:w-[280px] flex-none snap-start lg:w-[calc(25%_-_18px)]">
+                                    <VideoStoryCard data={story} />
+                                </div>
+                            ))}
+                        </CarouselRow>
+                    </div>
                 </div>
 
             </div>

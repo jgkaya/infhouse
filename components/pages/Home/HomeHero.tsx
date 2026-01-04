@@ -292,10 +292,17 @@ function GradientStat({ children }: { children: React.ReactNode }) {
 
 export default function HomeHero() {
   const [startVideos, setStartVideos] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
     const t = setTimeout(() => setStartVideos(true), 650);
-    return () => clearTimeout(t);
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+      clearTimeout(t);
+    };
   }, []);
 
   const leader = cats.find((c) => c.label === leaderLabel);
@@ -307,10 +314,10 @@ export default function HomeHero() {
       <div className="absolute inset-0 bg-[#fbfaf7]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(34,197,94,0.12),transparent_55%),radial-gradient(ellipse_at_bottom,rgba(236,72,153,0.10),transparent_60%)]" />
 
-      <div className="relative mx-auto max-w-[1180px] px-4 pt-28 pb-24 md:pt-32 md:pb-28">
+      <div className="relative mx-auto max-w-[1180px] px-4 pt-28 pb-12 md:pt-32 md:pb-28">
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-32">
           {/* LEFT */}
-          <div className="md:pt-[20%]">
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left md:pt-[20%]">
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -346,24 +353,24 @@ export default function HomeHero() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, ease, delay: 0.05 }}
-              className="mt-7 text-[44px] leading-[1.03] md:text-[44px] md:leading-[52px] font-[500] font-['Instrument_Sans',sans-serif] text-black"
+              className="mt-7 text-[44px] leading-[1.03] md:text-[44px] md:leading-[52px] font-[500] font-['Instrument_Sans',sans-serif] text-black w-full"
             >
-              <GradientStat>+500</GradientStat> markanın tercihi,
+              <GradientStat>+500</GradientStat> markanın <br className="md:hidden" /> tercihi,
               <br />
-              <GradientStat>+5000</GradientStat> içerik üreticisinin gücü.
+              <GradientStat>+5000</GradientStat> içerik <br className="md:hidden" /> üreticisinin gücü.
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease, delay: 0.12 }}
-              className="mt-5 text-[26px] font-normal font-['Inter_Tight',sans-serif] text-black/50"
+              className="mt-5 text-[26px] font-normal font-['Inter_Tight',sans-serif] text-black/50 w-full"
             >
               Gerçek videolar, güçlü sonuçlar.
             </motion.p>
 
-            <div className="mt-8 flex flex-wrap md:flex-nowrap items-center gap-3">
-              <button className="group inline-flex items-center gap-2.5 h-[50px] rounded-full bg-[#232323] text-white pl-6 pr-5 text-[15px] font-semibold whitespace-nowrap shadow-[0_18px_44px_rgba(0,0,0,0.16)] hover:bg-[#1f1f1f] transition">
+            <div className="mt-8 flex flex-col md:flex-row items-center gap-3">
+              <button className="group inline-flex items-center justify-center gap-2.5 h-[50px] rounded-full bg-[#232323] text-white pl-6 pr-5 text-[15px] font-semibold whitespace-nowrap shadow-[0_18px_44px_rgba(0,0,0,0.16)] hover:bg-[#1f1f1f] transition">
                 Sizi arayalım
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="translate-y-[0.5px]">
                   <path
@@ -380,30 +387,30 @@ export default function HomeHero() {
                 Formu Doldurun
               </button>
 
-              <button className="inline-flex items-center justify-center h-[50px] rounded-full bg-emerald-200/70 px-6 text-[15px] font-semibold text-black whitespace-nowrap ring-1 ring-black/5 shadow-[0_10px_26px_rgba(0,0,0,0.06)] hover:bg-emerald-200 transition">
+              <button className="inline-flex items-center justify-center h-[50px] rounded-full bg-[#D4F5D2] px-6 text-[15px] font-semibold text-black whitespace-nowrap ring-1 ring-black/5 shadow-[0_10px_26px_rgba(0,0,0,0.06)] hover:opacity-90 transition">
                 Ücretsiz Sosyal Medya Analizi
               </button>
             </div>
           </div>
 
           {/* RIGHT SHORE (Visibility Restored - Ultra Minimalist) */}
-          <div className="relative mx-auto mt-10 h-[560px] w-full max-w-[380px] md:max-w-none md:mt-24 md:h-[650px] md:w-[580px]">
+          <div className="relative mx-auto mt-10 h-[400px] w-full max-w-[380px] md:max-w-none md:mt-24 md:h-[650px] md:w-[580px]">
             {/* Back Phone (Natural Staircase) */}
             <PhoneVideo
               src={VIDEO_2}
               start={startVideos}
               delay={0.14}
-              radius={52}
-              className="absolute right-0 top-[120px] w-[210px] md:right-[10%] md:top-[120px] md:w-[280px] z-0 opacity-95"
+              radius={isMobile ? 21 : 52}
+              className="absolute right-4 top-[90px] w-[160px] md:right-[10%] md:top-[120px] md:w-[280px] z-0 opacity-95"
             />
 
             {/* Front Phone (Centered Overlap) */}
-            <div className="absolute left-0 top-0 z-10 w-[240px] md:left-0 md:w-[300px]">
+            <div className="absolute left-[7%] top-0 z-10 w-[185px] md:left-0 md:w-[300px]">
               <PhoneVideo
                 src={VIDEO_1}
                 start={startVideos}
                 delay={0.06}
-                radius={52}
+                radius={isMobile ? 21 : 52}
                 className="relative w-full"
               />
 
@@ -412,7 +419,7 @@ export default function HomeHero() {
                 initial={{ opacity: 0, x: 60, scale: 0.9 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 transition={{ duration: 0.75, delay: 0.4, ease }}
-                className="absolute left-[-15px] md:left-[-42%] top-[60px] z-30 w-max"
+                className="absolute left-[-22%] scale-[0.65] origin-left md:scale-100 md:left-[-42%] top-[35px] md:top-[60px] z-30 w-max"
               >
                 <BrandsStatCard />
               </motion.div>
@@ -422,7 +429,7 @@ export default function HomeHero() {
                 initial={{ opacity: 0, x: 60, scale: 0.9 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.5, ease }}
-                className="absolute left-[-10px] md:left-[-37px] bottom-[7%] z-30"
+                className="absolute left-[-23%] scale-[0.65] origin-left md:scale-100 md:left-[-37px] bottom-[15%] md:bottom-[7%] z-30"
               >
                 <PlatformsCard />
               </motion.div>
@@ -433,7 +440,7 @@ export default function HomeHero() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.6, ease }}
-              className="absolute right-0 md:right-[-10px] bottom-[-10px] z-30"
+              className="absolute right-[-10%] bottom-[-8%] md:right-[-10px] md:bottom-[-10px] z-30 scale-[0.75] md:scale-100 origin-bottom-right"
             >
               <div
                 className="relative"

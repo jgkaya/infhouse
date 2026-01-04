@@ -86,13 +86,14 @@ export default function Header() {
             </Link>
 
             {/* Mobile CTA (Small Pill-like icon) */}
-            <Link href="/sosyal-medya-analizi" className="md:hidden flex items-center justify-center w-10 h-8 bg-[#E1F9E7] rounded-full mr-1">
-              <div className="w-5 h-5 flex items-center justify-center">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M10 2L3 8V18H7V12H13V18H17V8L10 2Z" fill="#FF5C5C" />
-                  <path d="M10 11C10.5523 11 11 10.5523 11 10C11 9.44772 10.5523 9 10 9C9.44772 9 9 9.44772 9 10C9 10.5523 9.44772 11 10 11Z" fill="white" />
-                </svg>
-              </div>
+            <Link href="/sosyal-medya-analizi" className="md:hidden flex items-center justify-center mr-1">
+              <img
+                src="https://cdn.e-adam.net/infhouse/analiz.png"
+                alt="Sosyal Medya Analiz"
+                className="h-8 w-auto"
+                draggable={false}
+                loading="eager"
+              />
             </Link>
 
             {/* Hamburger Toggle */}
