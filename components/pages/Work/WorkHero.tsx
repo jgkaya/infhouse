@@ -75,8 +75,8 @@ const IMAGES = [
         alt: "Card Right",
         className: "w-24 md:w-56 z-100 opacity-90",
         finalTop: "25%",
-        mobileTop: "28%", // Lower on mobile
-        left: "66%",
+        mobileTop: "28%",
+        left: "72%",
         mobileLeft: "70%",
         rotate: 15,
         delay: 1.4
