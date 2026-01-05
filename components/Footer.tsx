@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Instagram, Linkedin, Twitter } from "lucide-react";
 
 export default function Footer() {
@@ -11,8 +12,13 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                     {/* Brand Column */}
                     <div className="flex flex-col gap-6">
-                        <div className="w-40 h-16 bg-gray-50 rounded-2xl border border-dashed border-gray-200 flex items-center justify-center text-gray-400 font-medium">
-                            Logo Placeholder
+                        <div className="w-40 h-12 relative">
+                            <Image
+                                src="https://cdn.e-adam.net/infhouse/logo.png"
+                                alt="InfHouse Logo"
+                                fill
+                                className="object-contain object-left"
+                            />
                         </div>
                         <p className="text-gray-400 text-[15px] leading-relaxed max-w-xs">
                             Markanızı ve ürünlerinizi en iyi şekilde tanıtan kullanıcı odaklı UGC videolar hazırlıyoruz. Deneyimli içerik üreticileri tarafından sizin ürünlerinizle çekilmiş gerçek kullanıcı videolarını size sunuyoruz.
