@@ -101,7 +101,7 @@ function CarouselRow({ children }: { children: ReactNode }) {
         <div className="relative group px-0 md:px-0 select-none">
             <div
                 ref={scrollContainerRef}
-                className="flex gap-3 md:gap-6 overflow-x-auto pb-8 scrollbar-hide cursor-grab pt-2 snap-x snap-mandatory px-6 md:px-0"
+                className="flex gap-3 md:gap-6 overflow-x-auto pb-8 scrollbar-hide cursor-grab pt-2 snap-x snap-mandatory px-[calc(50%-140px)] md:px-0"
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                 onMouseDown={onMouseDown}
                 onMouseLeave={onMouseLeave}
