@@ -52,7 +52,6 @@ function Bubble({ src, size, mobSize, x, y, mobX, mobY, delay, zIndex = 20, isMo
                 top: finalY,
             }}
             viewport={{ once: true }}
-            whileHover={{ scale: 1.05, zIndex: 100 }}
             transition={{
                 duration: 1.2,
                 delay,
@@ -68,7 +67,7 @@ function Bubble({ src, size, mobSize, x, y, mobX, mobY, delay, zIndex = 20, isMo
             <img
                 src={src}
                 alt=""
-                className="w-full h-full object-contain pointer-events-auto transition-all duration-500 hover:scale-110 drop-shadow-[0_20px_50px_rgba(0,0,0,0.15)]"
+                className="w-full h-full object-contain pointer-events-auto drop-shadow-[0_20px_50px_rgba(0,0,0,0.15)]"
             />
         </motion.div>
     );
@@ -88,7 +87,7 @@ export default function CreatorsHero() {
     return (
         <section id="icerik-ureticileri" className="relative w-full min-h-[70vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#fbfaf7] py-12 md:py-20">
             {/* Background Gradients */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(34,197,94,0.08),transparent_50%),radial-gradient(ellipse_at_bottom,rgba(236,72,153,0.06),transparent_50%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(34,197,94,0.15),transparent_55%),radial-gradient(ellipse_at_bottom_right,rgba(236,72,153,0.12),transparent_55%)]" />
 
             <div ref={containerRef} className="relative w-full max-w-[1400px] h-[500px] md:h-[800px] mx-auto px-4">
                 {/* Bubbles */}

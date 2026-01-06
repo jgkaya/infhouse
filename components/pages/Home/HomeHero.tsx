@@ -312,7 +312,7 @@ export default function HomeHero() {
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0 bg-[#fbfaf7]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(34,197,94,0.12),transparent_55%),radial-gradient(ellipse_at_bottom,rgba(236,72,153,0.10),transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_left,rgba(34,197,94,0.12),transparent_55%),radial-gradient(ellipse_at_right,rgba(34,197,94,0.12),transparent_55%),radial-gradient(ellipse_at_bottom,rgba(236,72,153,0.10),transparent_60%)]" />
 
       <div className="relative mx-auto max-w-[1180px] px-4 pt-28 pb-12 md:pt-32 md:pb-28">
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-32">
@@ -323,30 +323,12 @@ export default function HomeHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease }}
             >
-              <div
-                style={{
-                  background:
-                    "linear-gradient(91.38deg, rgba(175, 243, 173, 0.3) 2.28%, rgba(255, 235, 6, 0.3) 51.6%, rgba(255, 98, 123, 0.3) 99.98%)",
-                  boxShadow: "0px 1.5px 0px 0px #000000",
-                }}
-                className="inline-flex items-center justify-center gap-2 w-fit h-[40px] px-6 rounded-full border border-black whitespace-nowrap"
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="text-white">
-                  <path
-                    d="M12 2L14.39 9.61L22 12L14.39 14.39L12 22L9.61 14.39L2 12L9.61 9.61L12 2Z"
-                    fill="currentColor"
-                  />
-                </svg>
-                <span className="font-['Inter_Tight',sans-serif] font-normal text-[16px] leading-[1] tracking-[-0.02em] text-center capitalize text-black">
-                  Hızlı Büyümek İsteyen Markalar İçin
-                </span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="text-white">
-                  <path
-                    d="M12 2L14.39 9.61L22 12L14.39 14.39L12 22L9.61 14.39L2 12L9.61 9.61L12 2Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </div>
+              <img
+                src="https://cdn.e-adam.net/infhouse/h%C4%B1zl%C4%B1-b%C3%BCy%C3%BCmek.png"
+                alt="Hızlı Büyümek İsteyen Markalar İçin"
+                className="h-[40px] w-auto object-contain cursor-pointer"
+                draggable={false}
+              />
             </motion.div>
 
             <motion.h1
