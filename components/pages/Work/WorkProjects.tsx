@@ -14,13 +14,13 @@ const PROJECTS = [
         id: 2,
         title: "CFORB",
         subtitle: "Anneler Günü",
-        videoSrc: "https://video.e-adam.net/download/web-videos/8103b25f-ab40-4149-bfa3-ac5371611f79-1080.mp4", // Placeholder
+        videoSrc: "https://video.e-adam.net/download/web-videos/59ce7549-ab04-4aa6-be22-85d92a09a442-1080.mp4", // Placeholder
     },
     {
         id: 3,
         title: "Avni Erel",
         subtitle: "Tadım Challange",
-        videoSrc: "https://video.e-adam.net/download/web-videos/cfa91dbe-481a-4fbf-8874-2aee01ae58f3-1080.mp4", // Placeholder
+        videoSrc: "https://video.e-adam.net/download/web-videos/439748d9-f8d4-4b8a-8610-d2dbb7fbd586-1080.mp4", // Placeholder
     },
     {
         id: 4,

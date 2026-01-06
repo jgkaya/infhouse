@@ -169,7 +169,7 @@ const VIDEO_STORIES = [
         tag: "Oto Aksesuar",
     },
     {
-        videoSrc: "https://video.e-adam.net/download/web-videos/683337a4-9aa4-4095-9014-f832bdcf7306-1080.mp4",
+        videoSrc: "https://video.e-adam.net/download/web-videos/8007721f-b0c1-417f-bc74-3afe6fd31b54-1080.mp4",
         userAvatar: "https://cdn.e-adam.net/infhouse/bloved.png",
         userName: "Bahar Balkaya",
         userTitle: "B-Love",
