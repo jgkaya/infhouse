@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import HomeHero from "./HomeHero";
 import BrandFlow from "../Marka/BrandFlow";
 import WhatWeDo from "./WhatWeDo";
+import MainBrandShowcase from "./MainBrandShowcase";
 import StatsShowcase from "./StatsShowcase";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
             <HomeHero />
             <BrandFlow />
             <WhatWeDo />
+            <MainBrandShowcase />
             <StatsShowcase />
         </>
     );
