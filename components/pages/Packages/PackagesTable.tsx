@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Check, X } from "lucide-react";
+import { Check, X, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -147,8 +147,8 @@ const PackagesTable = () => {
                                             {/* Status Dot */}
                                             {tier.isRecommended && (
                                                 <div className="absolute top-6 right-6">
-                                                    <div className="w-6 h-6 rounded-full border-2 border-[#FF4D8D]/30 flex items-center justify-center bg-white shadow-sm">
-                                                        <div className="w-2.5 h-2.5 rounded-full bg-[#FF4D8D]"></div>
+                                                    <div className="w-8 h-8 rounded-full border-2 border-[#FF4D8D]/20 flex items-center justify-center bg-white shadow-sm">
+                                                        <Star className="w-4 h-4 fill-[#FF4D8D] text-[#FF4D8D]" />
                                                     </div>
                                                 </div>
                                             )}
