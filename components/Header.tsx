@@ -45,7 +45,7 @@ export default function Header() {
 
           {/* Logo Container for Mobile / Direct Link for Desktop */}
           <Link href="/" className="relative z-10 shrink-0 block">
-            <div className="bg-white border border-gray-100 rounded-[20px] md:rounded-none md:border-none px-3 py-2 md:p-0 md:bg-transparent shadow-sm md:shadow-none ml-1">
+            <div className="ml-1">
               <img
                 src={LOGO_URL}
                 alt="Infhouse"

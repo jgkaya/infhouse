@@ -19,22 +19,22 @@ interface BubbleProps {
 
 const bubbles: BubbleProps[] = [
     // Top Left
-    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik1.png", size: 140, mobSize: 80, x: "7%", y: "18%", mobX: "10%", mobY: "10%", delay: 0.4 },
+    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik1.png", size: 140, mobSize: 65, x: "7%", y: "18%", mobX: "0%", mobY: "21%", delay: 0.4 },
     // Inner Top Left
-    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik2.png", size: 150, mobSize: 90, x: "24%", y: "26%", mobX: "20%", mobY: "18%", delay: 0.5 },
+    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik2.png", size: 150, mobSize: 60, x: "24%", y: "26%", mobX: "8%", mobY: "46%", delay: 0.5 },
     // Bottom Left (Sunglasses)
-    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik4.png", size: 210, mobSize: 110, x: "2%", y: "63%", mobX: "5%", mobY: "55%", delay: 0.6 },
+    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik4.png", size: 210, mobSize: 115, x: "2%", y: "63%", mobX: "12%", mobY: "78%", delay: 0.6 },
     // Inner Bottom Left
-    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik3.png", size: 160, mobSize: 80, x: "22%", y: "86%", mobX: "15%", mobY: "88%", delay: 0.7 },
+    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik3.png", size: 160, mobSize: 90, x: "22%", y: "86%", mobX: "32%", mobY: "94%", delay: 0.7 },
 
     // Top Right
-    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik8.png", size: 160, mobSize: 90, x: "92%", y: "24%", mobX: "90%", mobY: "12%", delay: 0.45 },
+    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik8.png", size: 160, mobSize: 70, x: "92%", y: "24%", mobX: "100%", mobY: "20%", delay: 0.45 },
     // Inner Mid Right
-    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik5.png", size: 150, mobSize: 85, x: "76%", y: "40%", mobX: "85%", mobY: "35%", delay: 0.55 },
+    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik5.png", size: 150, mobSize: 60, x: "76%", y: "40%", mobX: "92%", mobY: "44%", delay: 0.55 },
     // Bottom Right
-    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik7.png", size: 180, mobSize: 100, x: "92%", y: "67%", mobX: "90%", mobY: "65%", delay: 0.75 },
+    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik7.png", size: 180, mobSize: 70, x: "92%", y: "67%", mobX: "86%", mobY: "72%", delay: 0.75 },
     // Inner Bottom Right
-    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik6.png", size: 140, mobSize: 75, x: "71%", y: "87%", mobX: "80%", mobY: "88%", delay: 0.65 },
+    { src: "https://cdn.e-adam.net/infhouse/i%C3%A7erik6.png", size: 140, mobSize: 80, x: "71%", y: "87%", mobX: "74%", mobY: "89%", delay: 0.65 },
 ];
 
 function Bubble({ src, size, mobSize, x, y, mobX, mobY, delay, zIndex = 20, isMobile }: BubbleProps & { isMobile: boolean }) {
@@ -85,7 +85,7 @@ export default function CreatorsHero() {
     }, []);
 
     return (
-        <section id="icerik-ureticileri" className="relative w-full min-h-[70vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#fbfaf7] py-12 md:py-20">
+        <section id="icerik-ureticileri" className="relative w-full min-h-[500px] md:min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#fbfaf7] pt-4 pb-12 md:py-20">
             {/* Background Gradients */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(34,197,94,0.15),transparent_55%),radial-gradient(ellipse_at_bottom_right,rgba(236,72,153,0.12),transparent_55%)]" />
 
@@ -102,7 +102,7 @@ export default function CreatorsHero() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.1, ease }}
-                        className="text-[28px] leading-[1.15] md:text-[40px] font-medium md:leading-[57px] text-black tracking-[-0.05em] font-instrument px-4"
+                        className="text-[20px] leading-[1.15] md:text-[40px] font-medium md:leading-[57px] text-black tracking-[-0.05em] font-instrument px-4"
                     >
                         Infhouse&apos;ta <span className="text-[#34C759]">UGC üreticisi olmak için</span> <br />başvurun ve doğru markalarla güçlü <br />iş birlikleri kurun.
                     </motion.h1>
@@ -112,9 +112,9 @@ export default function CreatorsHero() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2, ease }}
-                        className="space-y-4 max-w-[600px] px-2 md:px-6"
+                        className="space-y-4 max-w-[600px] px-12 md:px-6"
                     >
-                        <p className="text-[14px] md:text-[16px] text-black/50 leading-relaxed md:leading-none text-center font-normal tracking-[-0.02em] font-inter-tight">
+                        <p className="text-[10px] md:text-[16px] text-black/50 leading-relaxed md:leading-none text-center font-normal tracking-[-0.02em] font-inter-tight">
                             Infhouse, yetenekli içerik üreticilerini markalarla buluşturan,<br className="hidden md:block" /> güvenilir ve performans odaklı bir UGC platformudur.<br className="hidden md:block" />
                             Kayıt olun, stilinize ve yeteneğinize uygun projelerde yer alın;<br className="hidden md:block" /> süreç yönetimini bize bırakın, siz sadece sevdiğiniz şeye yani<br className="hidden md:block" /> özgün ve etkili içerikler üretmeye odaklanın!
                         </p>
@@ -130,11 +130,11 @@ export default function CreatorsHero() {
                             href="https://docs.google.com/forms/d/e/1FAIpQLSeEgkytxEfxtMVQmP95CUSCBCe7HrrETN2gfoRCUbfjkdfCnw/viewform"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group relative inline-flex items-center gap-2 h-10 px-6 md:h-12 md:px-8 bg-[#232323] text-white rounded-full text-[13px] md:text-[15px] font-semibold hover:bg-black transition-all"
+                            className="group relative inline-flex items-center gap-2 h-8 px-5 md:h-12 md:px-8 bg-[#232323] text-white rounded-full text-[11px] md:text-[15px] font-semibold hover:bg-black transition-all"
                         >
                             Şimdi Başvurun
                             <svg
-                                width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                width="14" height="14" viewBox="0 0 24 24" fill="none"
                                 className="group-hover:translate-x-1 transition-transform"
                             >
                                 <path d="M10 17l5-5-5-5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
