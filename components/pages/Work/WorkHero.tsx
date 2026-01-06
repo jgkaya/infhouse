@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -11,9 +11,11 @@ const IMAGES = [
         id: 5,
         src: "https://cdn.e-adam.net/InfHouse/cal0.png",
         alt: "Card Left",
-        className: "w-32 md:w-50 z-33 opacity-90",
-        finalTop: "35%", // Moved Up
+        className: "w-20 md:w-50 z-33 opacity-90",
+        finalTop: "35%",
+        mobileTop: "28%", // Lower on mobile
         left: "15%",
+        mobileLeft: "8%",
         rotate: -4,
         delay: 1.4
     },
@@ -22,20 +24,22 @@ const IMAGES = [
         id: 3, // Center (Harun Bey)
         src: "https://cdn.e-adam.net/InfHouse/cal3.png",
         alt: "Creator 3",
-        className: "w-56 md:w-[500px] z-50",
-        finalTop: "5%", // Moved Up
+        className: "w-40 md:w-[500px] z-50",
+        finalTop: "5%",
+        mobileTop: "18%", // Lower on mobile
         left: "50%",
         translateX: "-50%",
         rotate: 0,
         delay: 0.2
     },
     {
-        id: 4, // Right (Woman) - User made this huge
+        id: 4, // Right (Woman)
         src: "https://cdn.e-adam.net/InfHouse/cal4.png",
         alt: "Creator 4",
-        className: "w-48 md:w-[700px] z-40",
-        finalTop: "-19%", // Moved Up to accommodate size
-        left: "58%", // Kept wide spacing
+        className: "w-36 md:w-[700px] z-40",
+        finalTop: "-19%",
+        mobileTop: "14%", // Lower on mobile
+        left: "64%",
         translateX: "-50%",
         rotate: 5,
         delay: 0.5
@@ -44,8 +48,9 @@ const IMAGES = [
         id: 1, // Left (Woman)
         src: "https://cdn.e-adam.net/InfHouse/cal1.png",
         alt: "Creator 1",
-        className: "w-48 md:w-[400px] z-30", // Increased size to match balance
-        finalTop: "3%", // Moved Up
+        className: "w-32 md:w-[400px] z-30",
+        finalTop: "3%",
+        mobileTop: "15%", // Lower on mobile
         left: "32%",
         translateX: "-50%",
         rotate: -2,
@@ -55,9 +60,10 @@ const IMAGES = [
         id: 2, // Far Left (Man)
         src: "https://cdn.e-adam.net/InfHouse/cal2.png",
         alt: "Creator 2",
-        className: "w-40 md:w-[500px] z-20",
-        finalTop: "-7%", // Moved Up
-        left: "42%", // Moved slightly left
+        className: "w-28 md:w-[500px] z-20",
+        finalTop: "-7%",
+        mobileTop: "17%", // Lower on mobile
+        left: "42%",
         translateX: "-50%",
         rotate: 2,
         delay: 1.1
@@ -67,17 +73,30 @@ const IMAGES = [
         id: 6,
         src: "https://cdn.e-adam.net/InfHouse/cal5.png",
         alt: "Card Right",
-        className: "w-32 md:w-56 z-100 opacity-90",
-        finalTop: "25%", // Moved Up
-        left: "66%",
+        className: "w-24 md:w-56 z-100 opacity-90",
+        finalTop: "25%",
+        mobileTop: "28%",
+        left: "72%",
+        mobileLeft: "70%",
         rotate: 15,
         delay: 1.4
     }
 ];
 
 export const WorkHero = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
     return (
-        <section className="relative w-full min-h-[750px] bg-white flex flex-col items-center justify-end pb-0">
+        <section className="relative w-full min-h-[500px] md:min-h-[750px] bg-white flex flex-col items-center justify-end pb-0 overflow-hidden">
 
             {/* SVG Path Layer - The Green Ribbon */}
             <div className="absolute inset-0 pointer-events-none z-0 scale-y-125 origin-bottom">
@@ -106,17 +125,23 @@ export const WorkHero = () => {
 
             {/* Images Layer */}
             <div className="absolute inset-0 z-10 pointer-events-none">
-                {IMAGES.map((img) => (
+                {IMAGES.map((img: any) => (
                     <motion.div
                         key={img.id}
                         className={`absolute ${img.className}`}
                         style={{
-                            left: img.left,
+                            left: isMobile && img.mobileLeft ? img.mobileLeft : img.left,
                             transform: img.translateX ? `translateX(${img.translateX})` : 'none' // Center alignment helper
                         }}
                         // Start from bottom text area
                         initial={{ top: "100%", opacity: 0, scale: 0.8, rotate: img.rotate, x: img.translateX || 0 }}
-                        animate={{ top: img.finalTop, opacity: 1, scale: 1, rotate: img.rotate, x: img.translateX || 0 }}
+                        animate={{
+                            top: isMobile ? img.mobileTop : img.finalTop,
+                            opacity: 1,
+                            scale: 1,
+                            rotate: img.rotate,
+                            x: img.translateX || 0
+                        }}
                         transition={{
                             duration: 1.0,
                             delay: img.delay, // Custom specific delay
@@ -144,10 +169,10 @@ export const WorkHero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.8 }}
                 // Added top-[180px], responsive width calc, and mx-auto
-                className="relative z-40 text-center bg-white px-10 py-5 rounded-full shadow-xl -mb-[60px] top-[180px] w-[90%] md:w-[calc(100%-300px)] lg:w-[calc(100%-170px)] mx-auto"
+                className="relative z-40 text-center bg-white px-6 md:px-10 py-4 md:py-5 rounded-full shadow-xl -mb-[40px] md:-mb-[60px] top-[140px] md:top-[180px] w-[95%] md:w-[calc(100%-300px)] lg:w-[calc(100%-170px)] mx-auto"
             >
                 {/* Updated text size to [60px] on md screens */}
-                <h1 className="text-2xl md:text-[60px] font-bold text-red-500/90 tracking-tighter leading-tight">
+                <h1 className="text-xl md:text-[60px] font-bold text-red-500/90 tracking-tighter leading-tight">
                     Gerçek içerikler, <span className="text-red-300">ölçümlenebilir sonuçlar!</span>
                 </h1>
             </motion.div>

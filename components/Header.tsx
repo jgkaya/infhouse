@@ -12,7 +12,7 @@ const navItems = [
   { label: "İçerik Üreticileri", href: "/icerik-ureticileri" },
   { label: "Markalar", href: "/markalar" },
   { label: "Çalışmalarımız", href: "/calismalarimiz" },
-  { label: "Paketler", href: "/#paketler" },
+  { label: "Paketler", href: "/paketler" },
   { label: "İletişim", href: "/iletisim" },
 ];
 

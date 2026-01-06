@@ -27,7 +27,7 @@ const CATEGORIES = [
 
 const MarqueeRow = ({ items, direction = "left", speed = 40 }: { items: any[], direction?: "left" | "right", speed?: number }) => {
     return (
-        <div className="flex w-full overflow-hidden whitespace-nowrap py-6">
+        <div className="flex w-full overflow-hidden whitespace-nowrap py-1.5 md:py-2">
             <motion.div
                 className="flex items-center gap-16 md:gap-24 px-12"
                 animate={{
@@ -43,15 +43,15 @@ const MarqueeRow = ({ items, direction = "left", speed = 40 }: { items: any[], d
                     <div key={idx} className="flex items-center gap-16 md:gap-24">
                         {item.type === "brand" ? (
                             <div className="flex items-center gap-4 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-500 cursor-default shrink-0">
-                                <span className="text-[28px] md:text-[42px] font-bold text-gray-900 tracking-tighter uppercase">{item.name}</span>
+                                <span className="text-[20px] md:text-[28px] font-bold text-gray-900 tracking-tighter uppercase">{item.name}</span>
                             </div>
                         ) : (
                             <div className={`
-                                flex items-center gap-2 px-8 py-3.5 rounded-full border ${item.border} ${item.color} ${item.glow}
+                                flex items-center gap-2 px-5 py-2 rounded-full border ${item.border} ${item.color} ${item.glow}
                                 backdrop-blur-sm transition-all hover:scale-105 cursor-default shrink-0
                             `}>
-                                <span className="text-black font-bold text-xl md:text-2xl">{item.name}</span>
-                                <span className="text-yellow-400 animate-pulse text-2xl">✨</span>
+                                <span className="text-black font-bold text-sm md:text-base">{item.name}</span>
+                                <span className="text-yellow-400 animate-pulse text-lg">✨</span>
                             </div>
                         )}
                     </div>
@@ -89,17 +89,19 @@ export const BrandFlow = () => {
     ];
 
     return (
-        <section className="w-full bg-[#fbfaf7] py-24 overflow-hidden border-y border-gray-100/50">
-            <div className="text-center mb-20 px-4">
-                <h2 className="text-xl md:text-2xl text-gray-400 font-medium tracking-tight max-w-4xl mx-auto leading-relaxed">
-                    500&apos;den fazla ileri görüşlü sağlık ve zindelik markasıyla çalışıyoruz.
-                </h2>
-            </div>
+        <section className="w-full bg-[#fbfaf7] py-8 md:py-0 overflow-hidden border-y border-gray-100/50">
+            <div className="max-w-[1440px] mx-auto aspect-auto md:aspect-[1440/271] flex flex-col justify-center px-4">
+                <div className="text-center mb-6 md:mb-8">
+                    <h2 className="text-sm md:text-lg text-gray-400 font-medium tracking-tight max-w-4xl mx-auto leading-relaxed">
+                        500&apos;den fazla ileri görüşlü sağlık ve zindelik markasıyla çalışıyoruz.
+                    </h2>
+                </div>
 
-            <div className="flex flex-col gap-6 md:gap-10">
-                <MarqueeRow items={row1} direction="left" speed={45} />
-                <MarqueeRow items={row2} direction="right" speed={55} />
-                <MarqueeRow items={row3} direction="left" speed={50} />
+                <div className="flex flex-col gap-1 md:gap-2">
+                    <MarqueeRow items={row1} direction="left" speed={45} />
+                    <MarqueeRow items={row2} direction="right" speed={55} />
+                    <MarqueeRow items={row3} direction="left" speed={50} />
+                </div>
             </div>
         </section>
     );
