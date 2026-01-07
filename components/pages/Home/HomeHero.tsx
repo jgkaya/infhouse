@@ -1,7 +1,7 @@
 "use client";
 
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -37,21 +37,25 @@ const brandAvatars = [
   "https://cdn.e-adam.net/infhouse/4.jpg",
 ];
 
-// Görseldeki gridin “hissi” için lideri Güzellik yaptım (ilk o settle ediyor)
-const leaderLabel = "Güzellik";
+// Görseldeki gridin “hissi” için lideri Teknoloji olarak ayarlıyoruz
+const leaderLabel = "Teknoloji";
 const CARD_W = 90;
 const CARD_H = 76;
 const GAP = 8;
 
-const catVariants = (c: CategoryItem, idx: number) => {
+const catVariants = (c: CategoryItem, idx: number): Variants => {
   const isLeader = c.label === leaderLabel;
+  // Lider kartın pozisyonunu bul (Teknoloji)
+  // Teknoloji: x: 98, y: 84
+  const startX = 98;
+  const startY = 84;
 
   return {
     hidden: {
-      opacity: isLeader ? 1 : 0.85,
-      scale: isLeader ? 1 : 0.95,
-      x: 0,
-      y: 0,
+      opacity: 0,
+      scale: 0.5,
+      x: startX,
+      y: startY,
       zIndex: isLeader ? 50 : 40 - idx,
     },
     show: {
@@ -60,7 +64,12 @@ const catVariants = (c: CategoryItem, idx: number) => {
       x: c.x,
       y: c.y,
       zIndex: 1,
-      transition: { duration: 0.65, ease, delay: 0.15 + idx * 0.08 },
+      transition: {
+        type: "spring",
+        stiffness: 150,
+        damping: 18,
+        delay: 0.15 + idx * 0.1,
+      },
     },
   };
 };
@@ -155,12 +164,12 @@ function CategoryCard({
   return (
     <div
       style={{ width: w, height: h }}
-      className="group relative transition-all duration-300 transform hover:scale-105"
+      className="group relative transition-all duration-300 transform hover:scale-110 hover:-translate-y-1"
     >
       <img
         src={iconSrc || ""}
         alt={label}
-        className="w-full h-full object-contain grayscale-[0.05] group-hover:grayscale-0 transition-all duration-300"
+        className="w-full h-full object-contain grayscale-[0.05] group-hover:grayscale-0 transition-all duration-300 drop-shadow-sm group-hover:drop-shadow-lg"
         draggable={false}
         loading="lazy"
       />
@@ -252,9 +261,9 @@ function PhoneVideo({
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: 34, y: 10, scale: 0.985 }}
+      initial={{ opacity: 0, x: 50, y: 40, scale: 0.8 }}
       animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
-      transition={{ duration: 0.75, ease, delay }}
+      transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1], delay }}
       className={className}
     >
       <div
@@ -319,7 +328,7 @@ export default function HomeHero() {
           {/* LEFT */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left md:pt-[20%]">
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease }}
             >
@@ -332,9 +341,9 @@ export default function HomeHero() {
             </motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.75, ease, delay: 0.05 }}
+              transition={{ duration: 0.8, ease, delay: 0.1 }}
               className="mt-7 text-[44px] leading-[1.03] md:text-[44px] md:leading-[52px] font-[500] font-['Instrument_Sans',sans-serif] text-black w-full"
             >
               <GradientStat>+500</GradientStat> markanın <br className="md:hidden" /> tercihi,
@@ -343,9 +352,9 @@ export default function HomeHero() {
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease, delay: 0.12 }}
+              transition={{ duration: 0.8, ease, delay: 0.2 }}
               className="mt-5 text-[26px] font-normal font-['Inter_Tight',sans-serif] text-black/50 w-full"
             >
               Gerçek videolar, güçlü sonuçlar.
@@ -398,9 +407,9 @@ export default function HomeHero() {
 
               {/* Brands card (Fine-tuned inside-left overlap) */}
               <motion.div
-                initial={{ opacity: 0, x: 60, scale: 0.9 }}
+                initial={{ opacity: 0, x: 100, scale: 0.6 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
-                transition={{ duration: 0.75, delay: 0.4, ease }}
+                transition={{ duration: 0.8, delay: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
                 className="absolute left-[-22%] scale-[0.65] origin-left md:scale-100 md:left-[-42%] top-[35px] md:top-[60px] z-30 w-max"
               >
                 <BrandsStatCard />
@@ -408,9 +417,9 @@ export default function HomeHero() {
 
               {/* Platforms card (Fine-tuned alignment) */}
               <motion.div
-                initial={{ opacity: 0, x: 60, scale: 0.9 }}
+                initial={{ opacity: 0, x: 100, scale: 0.6 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
-                transition={{ duration: 0.7, delay: 0.5, ease }}
+                transition={{ duration: 0.8, delay: 0.5, ease: [0.34, 1.56, 0.64, 1] }}
                 className="absolute left-[-23%] scale-[0.65] origin-left md:scale-100 md:left-[-37px] bottom-[15%] md:bottom-[7%] z-30"
               >
                 <PlatformsCard />
@@ -419,9 +428,9 @@ export default function HomeHero() {
 
             {/* Categories (Ultra Minimal Grid) */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.6, ease }}
+              initial={{ opacity: 0, x: 50, y: 20 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6, ease }}
               className="absolute right-[-10%] bottom-[-8%] md:right-[-10px] md:bottom-[-10px] z-30 scale-[0.75] md:scale-100 origin-bottom-right"
             >
               <div
