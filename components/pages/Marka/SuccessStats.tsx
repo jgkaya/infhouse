@@ -354,7 +354,7 @@ const SuccessStats = () => {
                         </span>
                     </h3>
 
-                    <button className="bg-[#1a1a1a] text-white px-6 py-3 md:px-10 md:py-4 rounded-full font-medium hover:bg-black transition-transform active:scale-95 text-[15px] md:text-lg shadow-lg">
+                    <button className="bg-[#1a1a1a] text-white px-8 py-2.5 rounded-full font-bold hover:bg-black transition-transform active:scale-95 text-[11px] shadow-lg">
                         Sizi Arayalım
                     </button>
                 </div>

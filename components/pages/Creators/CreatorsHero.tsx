@@ -130,7 +130,7 @@ export default function CreatorsHero() {
                             href="https://docs.google.com/forms/d/e/1FAIpQLSeEgkytxEfxtMVQmP95CUSCBCe7HrrETN2gfoRCUbfjkdfCnw/viewform"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group relative inline-flex items-center gap-2 h-8 px-5 md:h-12 md:px-8 bg-[#232323] text-white rounded-full text-[11px] md:text-[15px] font-semibold hover:bg-black transition-all"
+                            className="group relative inline-flex items-center gap-2 px-8 py-2.5 bg-[#232323] text-white rounded-full text-[11px] font-bold hover:bg-black transition-all"
                         >
                             Şimdi Başvurun
                             <svg

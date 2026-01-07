@@ -50,10 +50,7 @@ export const CarouselInf = () => {
             x: 0,
             y: 0,
             rotate: 0,
-            opacity: index === 2 ? 1 : 0, // Only center visible initially or all stacked? user said "arkasında". Let's make center visible, others hidden or opacity 1 but behind.
-            // If opacity is 1 and z-index is lower, they are hidden behind.
-            // Let's set opacity to 0 though to be smoother "appearing" if z-index fighting occurs.
-            // But user said "arkasında olacak". Let's try opacity 1 but scaled down slightly and behind.
+            opacity: 1, // All cards visible from start
             scale: 0.8,
             zIndex: 5 - Math.abs(2 - index), // 0->3, 1->4, 2->5, 3->4, 4->3
         }),
@@ -64,13 +61,27 @@ export const CarouselInf = () => {
             // 3: Right
             // 4: Far Right
 
-            const variants = [
+            // Desktop variants
+            const desktopVariants = [
                 { x: -300, y: 30, rotate: -15, scale: 0.9, zIndex: 1 },  // Far Left
                 { x: -160, y: 10, rotate: -7, scale: 0.95, zIndex: 2 }, // Left
                 { x: 0, y: 0, rotate: 0, scale: 1.1, zIndex: 10 },      // Center
                 { x: 160, y: 10, rotate: 7, scale: 0.95, zIndex: 2 },   // Right
                 { x: 300, y: 30, rotate: 15, scale: 0.9, zIndex: 1 },   // Far Right
             ];
+
+            // Mobile variants - more compact and centered
+            const mobileVariants = [
+                { x: -145, y: 30, rotate: -16, scale: 0.65, zIndex: 1 },  // Far Left
+                { x: -80, y: 15, rotate: -8, scale: 0.75, zIndex: 2 },    // Left
+                { x: 0, y: 0, rotate: 0, scale: 0.85, zIndex: 10 },       // Center
+                { x: 80, y: 15, rotate: 8, scale: 0.75, zIndex: 2 },      // Right
+                { x: 145, y: 30, rotate: 16, scale: 0.65, zIndex: 1 },    // Far Right
+            ];
+
+            // Use window width to determine which variant set to use
+            const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+            const variants = isMobile ? mobileVariants : desktopVariants;
 
             // Calculate delay based on distance from center (index 2)
             const distanceFromCenter = Math.abs(2 - index);
@@ -94,11 +105,10 @@ export const CarouselInf = () => {
     };
 
     return (
-        <section id="markalar" className="w-full min-h-[800px] flex flex-col items-center justify-center bg-white overflow-hidden py-20">
+        <section id="markalar" className="w-full min-h-[800px] flex flex-col items-center justify-center bg-white overflow-hidden py-8 md:py-20">
 
             {/* Header Text Section */}
-            {/* Header Text Section /w Glow */}
-            <div className="relative mb-16 px-4 text-center">
+            <div className="relative mb-4 md:mb-8 px-4 text-center">
                 {/* Green Glow Effect - Persistent */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-green-200/50 blur-[80px] rounded-full pointer-events-none" />
 
@@ -106,20 +116,16 @@ export const CarouselInf = () => {
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="relative z-10 space-y-4"
+                    className="relative z-10 space-y-2"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
-                        <span className="text-pink-300">+500</span> markanın gizli silahı!
+                    <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-gray-900">
+                        +500 markanın gizli silahı!
                     </h2>
-                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
-                        <span className="text-pink-300">+5000</span> sözleşmeli içerik üreticisi ile
+                    <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-gray-900">
+                        +5000 sözleşmeli içerik üreticisi ile Türkiye&apos;nin en kaliteli UGC videoları!
                     </h2>
-                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
-                        Türkiye&apos;nin en kaliteli UGC videoları!
-                    </h2>
-                    <p className="max-w-3xl mx-auto text-lg text-gray-500 mt-6 leading-relaxed">
-                        Markanızı güçlendirmek için, her içeriği ekip çalışması,
-                        strateji ve titiz operasyonun birleşimiyle hayata geçiriyoruz.
+                    <p className="max-w-3xl mx-auto text-sm md:text-base text-gray-500 mt-1 md:mt-4 leading-relaxed">
+                        Markanızı güçlendirmek için, her içeriği ekip çalışması, strateji ve titiz operasyonun birleşimiyle hayata geçiriyoruz.
                     </p>
 
 
@@ -127,7 +133,7 @@ export const CarouselInf = () => {
             </div>
 
             {/* Cards Fan Section */}
-            <div className="relative w-full max-w-[1200px] h-[500px] flex justify-center items-center perspective-[1000px]">
+            <div className="relative w-full max-w-[1200px] h-[400px] md:h-[500px] flex justify-center items-center perspective-[1000px]">
                 {CARDS.map((card, index) => (
                     <motion.div
                         key={card.id}
@@ -137,7 +143,7 @@ export const CarouselInf = () => {
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
                         className={cn(
-                            "absolute top-10 w-[240px] h-[380px] md:w-[280px] md:h-[420px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white",
+                            "absolute top-10 w-[140px] h-[140px] md:w-[280px] md:h-[280px] rounded-3xl overflow-hidden shadow-2xl",
                             "origin-bottom" // Rotate from bottom for a fan feel
                         )}
                         style={{
@@ -159,13 +165,20 @@ export const CarouselInf = () => {
                 ))}
             </div>
             {/* CTA Buttons */}
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-                <button className="h-[56px] px-10 rounded-full bg-[#1a1a1a] text-white font-semibold text-[16px] shadow-lg hover:bg-black transition-all active:scale-95">
+            <div className="mt-0 md:mt-4 flex flex-wrap items-center justify-center gap-4">
+                <button className="px-8 py-2.5 rounded-full bg-[#1a1a1a] text-white font-bold text-[11px] shadow-lg hover:bg-black transition-all active:scale-95">
                     Sizi Arayalım
                 </button>
-                <button className="h-[56px] px-10 rounded-full bg-white text-[#1a1a1a] font-semibold text-[16px] ring-1 ring-black/10 shadow-lg hover:bg-gray-50 transition-all active:scale-95">
+                <button className="px-8 py-2.5 rounded-full bg-white text-[#1a1a1a] font-bold text-[11px] ring-1 ring-black/10 shadow-lg hover:bg-gray-50 transition-all active:scale-95">
                     Şimdi Başvurun
                 </button>
+            </div>
+
+            {/* Category Text */}
+            <div className="mt-6 text-center">
+                <p className="text-xs md:text-sm text-gray-500">
+                    500'den fazla sağlıktan tekstile, teknolojiden güzelliğe onlarca kategoride marka ile çalışıyoruz.
+                </p>
             </div>
         </section>
     );
