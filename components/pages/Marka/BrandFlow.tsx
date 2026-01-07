@@ -121,24 +121,7 @@ export const BrandFlow = () => {
         <section className="w-full bg-white py-12 md:py-0 overflow-hidden relative">
             <div className="max-w-[1440px] mx-auto aspect-auto md:aspect-[1440/292] flex flex-col justify-center px-4 relative">
                 {/* Header Badge */}
-                <div className="flex justify-center mt-12 mb-6 relative z-10 transition-transform hover:scale-[1.02] duration-300">
-                    <div className="relative">
-                        {/* Shadow & Border Container */}
-                        <div className="absolute inset-0 bg-black translate-y-[2px] rounded-full blur-[1px] opacity-10" />
 
-                        {/* Main Rainbow Badge */}
-                        {/* Main Rainbow Badge */}
-                        <div className="relative px-12 py-3.5 bg-gradient-to-r from-[#bbf7d0] via-[#fef08a] to-[#ffcfd2] border border-black/20 rounded-full flex items-center justify-center shadow-[0_2px_10px_rgba(0,0,0,0.05),inset_0_1px_2px_rgba(255,255,255,0.8)]">
-                            {/* Sparkles */}
-                            <span className="absolute left-3.5 top-2.5 text-white text-[14px] filter drop-shadow-[0_0_3px_rgba(0,0,0,0.1)] select-none">✦</span>
-                            <span className="absolute right-3.5 bottom-2.5 text-white text-[14px] filter drop-shadow-[0_0_3px_rgba(0,0,0,0.1)] opacity-80 select-none">✦</span>
-
-                            <span className="text-[14px] md:text-[16px] font-bold text-black tracking-tight text-center relative z-10">
-                                500&apos;den fazla sağlıktan tekstile, teknolojiden güzelliğe onlarca kategoride marka ile çalışıyoruz.
-                            </span>
-                        </div>
-                    </div>
-                </div>
 
                 <div className="flex flex-col gap-0 relative">
                     <MarqueeRow items={row1} direction="left" speed={60} />

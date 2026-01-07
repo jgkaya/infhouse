@@ -167,4 +167,29 @@
   .animate-fade-in {
     animation: fade-in 0.3s ease-out;
   }
+
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Mobile brand scroll animation */
+  @keyframes scroll-mobile {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll-mobile {
+    animation: scroll-mobile 10s linear infinite;
+  }
 }
