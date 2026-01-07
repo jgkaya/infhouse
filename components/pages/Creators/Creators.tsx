@@ -3,6 +3,7 @@
 import Header from "@/components/Header";
 import CreatorsHero from "./CreatorsHero";
 import CreatorsFeedback from "./CreatorsFeedback";
+import CreatorsWhyChoose from "./CreatorsWhyChoose";
 
 export default function Creators() {
     return (
@@ -10,6 +11,7 @@ export default function Creators() {
             <Header />
             <CreatorsHero />
             <CreatorsFeedback />
+            <CreatorsWhyChoose />
         </>
     );
 }
