@@ -105,7 +105,7 @@ export const CarouselInf = () => {
     };
 
     return (
-        <section id="markalar" className="w-full md:min-h-[800px] flex flex-col items-center justify-center bg-white overflow-hidden py-4 md:py-20">
+        <section id="markalar" className="w-full md:min-h-[800px] flex flex-col items-center justify-center bg-white overflow-hidden pt-24 pb-8 md:pt-32 md:pb-20">
 
             {/* Header Text Section */}
             <div className="relative mb-4 md:mb-8 px-4 text-center">
