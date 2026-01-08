@@ -26,7 +26,7 @@ const PROJECTS = [
         id: 4,
         title: "Bueno Shoes",
         subtitle: "Babalar Günü",
-        videoSrc: "https://video.e-adam.net/download/web-videos/a4884561-2ac1-4287-be86-e71938a0c842-1080.mp4", // Placeholder
+        videoSrc: "https://video.e-adam.net/download/web-videos/58dce20d-775e-4121-8db8-a073b89e5cc7-1080.mp4", // Placeholder
     },
     {
         id: 5,
