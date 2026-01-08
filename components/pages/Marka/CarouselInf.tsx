@@ -105,7 +105,7 @@ export const CarouselInf = () => {
     };
 
     return (
-        <section id="markalar" className="w-full min-h-[800px] flex flex-col items-center justify-center bg-white overflow-hidden py-8 md:py-20">
+        <section id="markalar" className="w-full md:min-h-[800px] flex flex-col items-center justify-center bg-white overflow-hidden py-4 md:py-20">
 
             {/* Header Text Section */}
             <div className="relative mb-4 md:mb-8 px-4 text-center">
@@ -133,7 +133,7 @@ export const CarouselInf = () => {
             </div>
 
             {/* Cards Fan Section */}
-            <div className="relative w-full max-w-[1200px] h-[400px] md:h-[500px] flex justify-center items-center perspective-[1000px]">
+            <div className="relative w-full max-w-[1200px] h-[200px] md:h-[500px] flex justify-center items-center perspective-[1000px]">
                 {CARDS.map((card, index) => (
                     <motion.div
                         key={card.id}
@@ -143,7 +143,7 @@ export const CarouselInf = () => {
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
                         className={cn(
-                            "absolute top-10 w-[140px] h-[140px] md:w-[280px] md:h-[280px] rounded-3xl overflow-hidden shadow-2xl",
+                            "absolute top-0 md:top-10 w-[140px] h-[140px] md:w-[280px] md:h-[280px] rounded-3xl overflow-hidden shadow-2xl",
                             "origin-bottom" // Rotate from bottom for a fan feel
                         )}
                         style={{
@@ -165,7 +165,7 @@ export const CarouselInf = () => {
                 ))}
             </div>
             {/* CTA Buttons */}
-            <div className="mt-0 md:mt-4 flex flex-wrap items-center justify-center gap-4">
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-2 md:gap-4 relative z-20">
                 <button className="px-8 py-2.5 rounded-full bg-[#1a1a1a] text-white font-bold text-[11px] shadow-lg hover:bg-black transition-all active:scale-95">
                     Sizi Arayalım
                 </button>

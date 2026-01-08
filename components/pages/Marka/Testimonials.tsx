@@ -92,7 +92,7 @@ export default function Testimonials() {
 
     return (
         <section className="bg-[#fbfaf7] py-8 md:py-24 px-4 md:px-12 overflow-hidden relative">
-            <div className="max-w-[1400px] mx-auto text-center mb-0 md:mb-24 px-4">
+            <div className="max-w-[1400px] mx-auto text-center mb-4 md:mb-24 px-4">
                 <h2 className="text-[20px] md:text-[72px] font-bold tracking-tight leading-[1.2] font-instrument">
                     <span className="bg-gradient-to-r from-[#FFDADE] to-[#FF6C79] bg-clip-text text-transparent">Müşterilerimiz</span> Ne Diyor?
                 </h2>
