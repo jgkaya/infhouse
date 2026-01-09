@@ -34,7 +34,7 @@ const FEATURES = [
 
 export default function CreatorsWhyChoose() {
     return (
-        <section className="bg-[#FFFCF8] py-24">
+        <section className="bg-[#FFFCF8] py-16">
             <div className="mx-auto max-w-[1240px] px-4">
                 {/* Header */}
                 <div className="text-center mb-16">

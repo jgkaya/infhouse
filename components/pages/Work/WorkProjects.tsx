@@ -183,7 +183,7 @@ function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
 
 export const WorkProjects = () => {
     return (
-        <section className="w-full bg-[#fbfaf7] py-12 md:py-24 overflow-hidden">
+        <section className="w-full bg-[#fbfaf7] pt-4 pb-10 md:pt-8 md:pb-16 overflow-hidden">
             <div className="max-w-[1400px] mx-auto">
 
                 {/* Header */}

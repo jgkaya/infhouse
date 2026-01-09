@@ -4,7 +4,7 @@ import React from "react";
 
 const CreatorsJoinCTA = () => {
     return (
-        <section className="w-full bg-white py-20 md:py-32 flex flex-col items-center justify-center text-center px-4 overflow-hidden">
+        <section className="w-full bg-white py-12 md:py-20 flex flex-col items-center justify-center text-center px-4 overflow-hidden">
             <div className="w-full flex flex-col items-center">
                 {/* Part 1 */}
                 <h2

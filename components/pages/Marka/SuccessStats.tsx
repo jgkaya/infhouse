@@ -235,7 +235,7 @@ const SuccessStats = () => {
     const rightStaticUrl = "https://cdn.e-adam.net/infhouse/kalp.png";
 
     return (
-        <section className="w-full bg-[#fafafb] py-16 md:py-24 flex flex-col items-center overflow-hidden">
+        <section className="w-full bg-[#fafafb] py-12 md:py-16 flex flex-col items-center overflow-hidden">
             {/* Title */}
             <h2
                 className="mb-12 md:mb-16 text-center text-transparent bg-clip-text bg-gradient-to-b from-[#FFDADE] to-[#FF627B] text-[40px] leading-[48px] md:text-[60px] md:leading-[70px]"

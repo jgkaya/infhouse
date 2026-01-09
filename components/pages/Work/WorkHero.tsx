@@ -96,7 +96,7 @@ export const WorkHero = () => {
     }, []);
 
     return (
-        <section className="relative w-full min-h-[500px] md:min-h-[750px] bg-white flex flex-col items-center justify-end pb-0 overflow-hidden">
+        <section className="relative w-full min-h-[500px] md:min-h-[750px] bg-white flex flex-col items-center justify-end pb-[100px] overflow-hidden">
 
             {/* SVG Path Layer - The Green Ribbon */}
             <div className="absolute inset-0 pointer-events-none z-0 scale-y-125 origin-bottom">

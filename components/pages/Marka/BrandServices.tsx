@@ -84,7 +84,7 @@ const BrandServices = () => {
     };
 
     return (
-        <section className="w-full bg-[#FAFAFA] py-16 md:py-24 overflow-hidden">
+        <section className="w-full bg-[#FAFAFA] py-12 md:py-16 overflow-hidden">
             <div className="max-w-[1440px] mx-auto px-4 md:px-6">
                 {/* Header */}
                 <div className="flex flex-col items-center text-center mb-16 max-w-4xl mx-auto">

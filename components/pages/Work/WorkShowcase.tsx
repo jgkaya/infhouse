@@ -63,7 +63,7 @@ export const WorkShowcase = () => {
     const [activeCategory, setActiveCategory] = useState("saglik");
 
     return (
-        <section className="w-full bg-[#fbfaf7] pt-[140px] md:pt-[240px] pb-16 md:pb-20 overflow-hidden">
+        <section className="w-full bg-[#fbfaf7] pt-8 md:pt-16 pb-4 md:pb-8 overflow-hidden">
             <div className="max-w-[1400px] mx-auto px-4">
 
                 <div className="bg-white rounded-[40px] px-6 py-10 md:px-20 md:py-16 shadow-sm ring-1 ring-black/5 mx-auto relative">

@@ -117,7 +117,7 @@ export default function CreatorsFeedback() {
     };
 
     return (
-        <section className="bg-white py-20 overflow-hidden">
+        <section className="bg-white py-16 overflow-hidden">
             <div className="mx-auto max-w-[1240px] px-0 md:px-4">
                 {/* Header */}
                 <div className="text-center mb-12 sm:mb-16 px-4">
