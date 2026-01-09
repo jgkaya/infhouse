@@ -17,7 +17,7 @@ const TESTIMONIALS = [
         name: "Okay Soyak",
         role: "İçerik Üreticisi",
         content: "Yeni olsam da beni hep ekibin, takımın parçası gibi hissettiren ve markalarla iletişim kurmamı sağlayan her bir çalışanınıza teşekkür ediyorum. Yeni oluşumunuz Infhouse sayesinde de bu deneyimlere yeni, güzel markalar ve günler geleceğini umuyorum. Teşekkürler ✨",
-        avatar: "https://cdn.e-adam.net/infhouse/okay.png",
+        avatar: "https://cdn.e-adam.net/InfHou  se/okay.png",
     },
     {
         id: 3,
