@@ -99,12 +99,12 @@ export default function CreatorsWhyChoose() {
 
                         <Link
                             href="/basvuru"
-                            className="inline-flex self-start items-center gap-4 bg-[#1A1A1A] text-white px-6 rounded-[32px]"
+                            className="inline-flex self-start items-center gap-2 md:gap-4 bg-[#1A1A1A] text-white px-4 md:px-6 py-1 md:py-0 rounded-[32px]"
                         >
-                            <span className="font-instrument font-medium text-[11.53px] leading-[50.43px] tracking-[-0.07em] text-center">
+                            <span className="font-instrument font-medium text-[10px] md:text-[11.53px] leading-[30px] md:leading-[50.43px] tracking-[-0.07em] text-center">
                                 Aramıza Katıl
                             </span>
-                            <MoveRight className="w-4 h-4" />
+                            <MoveRight className="w-3 h-3 md:w-4 md:h-4" />
                         </Link>
                     </div>
                 </div>

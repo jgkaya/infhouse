@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import CreatorsHero from "./CreatorsHero";
 import CreatorsFeedback from "./CreatorsFeedback";
 import CreatorsWhyChoose from "./CreatorsWhyChoose";
+import CreatorsJoinCTA from "./CreatorsJoinCTA";
 
 export default function Creators() {
     return (
@@ -12,6 +13,7 @@ export default function Creators() {
             <CreatorsHero />
             <CreatorsFeedback />
             <CreatorsWhyChoose />
+            <CreatorsJoinCTA />
         </>
     );
 }

@@ -1,7 +1,31 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
-import { useInView, motion, AnimatePresence } from "framer-motion";
+import { useInView, motion, AnimatePresence, animate } from "framer-motion";
+
+// Counter Component to animate numbers
+const Counter = ({ from = 0, to, duration = 2, prefix = "", suffix = "" }: { from?: number, to: number, duration?: number, prefix?: string, suffix?: string }) => {
+    const nodeRef = useRef<HTMLSpanElement>(null);
+    const isInView = useInView(nodeRef, { once: true, amount: 0.5 }); // Trigger once when visible
+
+    useEffect(() => {
+        if (!isInView) return;
+
+        const node = nodeRef.current;
+        if (!node) return;
+
+        const controls = animate(from, to, {
+            duration: duration,
+            onUpdate(value) {
+                node.textContent = `${prefix}${Math.round(value)}${suffix}`;
+            }
+        });
+
+        return () => controls.stop();
+    }, [from, to, duration, prefix, suffix, isInView]);
+
+    return <span ref={nodeRef}>{prefix}{from}{suffix}</span>;
+};
 
 // Helper component for the confetti particles
 const ConfettiParticles = () => {
@@ -241,7 +265,7 @@ const SuccessStats = () => {
                                     letterSpacing: '-0.05em'
                                 }}
                             >
-                                +5000
+                                <Counter from={0} to={5000} prefix="+" duration={2} />
                             </span>
                         </div>
                         <div className="text-center md:text-left">
@@ -278,7 +302,7 @@ const SuccessStats = () => {
                                     letterSpacing: '-0.05em'
                                 }}
                             >
-                                +2000 M
+                                <Counter from={0} to={2000} prefix="+" suffix=" M" duration={2} />
                             </span>
                         </div>
                         <div className="text-center md:text-left">
@@ -315,7 +339,7 @@ const SuccessStats = () => {
                                     letterSpacing: '-0.05em'
                                 }}
                             >
-                                +500
+                                <Counter from={0} to={500} prefix="+" duration={2} />
                             </span>
                         </div>
                         <div className="text-center md:text-left">
