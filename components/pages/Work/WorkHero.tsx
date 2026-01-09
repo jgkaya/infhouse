@@ -99,7 +99,7 @@ export const WorkHero = () => {
         <section className="relative w-full min-h-[500px] md:min-h-[750px] bg-white flex flex-col items-center justify-end pb-[100px] overflow-hidden">
 
             {/* SVG Path Layer - The Green Ribbon */}
-            <div className="absolute inset-0 pointer-events-none z-0 scale-y-125 origin-bottom">
+            <div className="absolute inset-0 pointer-events-none z-0 scale-y-125 origin-bottom -translate-y-10 md:translate-y-0">
                 <svg
                     className="w-full h-full"
                     viewBox="0 0 1440 800"
@@ -107,10 +107,16 @@ export const WorkHero = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     preserveAspectRatio="none"
                 >
+                    <defs>
+                        <linearGradient id="ribbonGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="#bbf7d0" />
+                            <stop offset="100%" stopColor="#ffffff" />
+                        </linearGradient>
+                    </defs>
                     <motion.path
                         d="M-200,600 C300,550 500,300 720,500 C1040,700 1200,300 1640,400"
-                        stroke="#bbf7d0"
-                        strokeWidth="200" // Even Thickness
+                        stroke="url(#ribbonGradient)"
+                        strokeWidth="70" // Refined Thickness
                         strokeLinecap="round"
                         fill="none"
                         initial={{ pathLength: 0, opacity: 0 }}
