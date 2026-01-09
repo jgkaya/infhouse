@@ -8,7 +8,7 @@ const PROJECTS = [
         id: 1,
         title: "A Roasting Lab",
         subtitle: "Mama Yardımı",
-        videoSrc: "https://video.e-adam.net/download/web-videos/6006fcb9-18c3-4611-bb5a-fd38904c2daa-1080.mp4", // Placeholder
+        videoSrc: "https://video.e-adam.net/download/web-videos/0623ef3e-b853-44ee-9940-926d53c256f3-1080.mp4", // Placeholder
     },
     {
         id: 2,
