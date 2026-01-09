@@ -203,7 +203,7 @@ export default function BrandsVideos() {
                 {/* Header */}
                 <div className="text-center mb-8 sm:mb-16 px-4">
                     <h2 className="text-[32px] md:text-[64px] font-medium tracking-tight font-instrument leading-[1.1]">
-                        <span className="text-[#1A1A1A]">Örnek</span>{" "}
+                        <span className="text-[#1A1A1A]">Markalara Özel</span>{" "}
                         <span className="text-[#FF9CA6]">Videolarımız</span>
                     </h2>
                 </div>
