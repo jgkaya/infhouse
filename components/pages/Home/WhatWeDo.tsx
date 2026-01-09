@@ -142,8 +142,43 @@ export default function WhatWeDo() {
                         ))}
                     </div>
 
-                    {/* Navigation Buttons */}
-                    <div className="mt-8 flex items-center justify-center gap-4">
+                    {/* Desktop Navigation Buttons */}
+                    <>
+                        <button
+                            onClick={() => scroll("left")}
+                            disabled={!canScrollLeft}
+                            className={`
+                absolute top-1/2 -translate-y-1/2 z-10
+                hidden md:flex h-12 w-12 items-center justify-center rounded-2xl
+                bg-[#e6f4ea] text-[#1e8e3e]
+                transition-all duration-200
+                hover:bg-[#dcecd0] hover:scale-110
+                disabled:opacity-0 disabled:cursor-not-allowed
+                left-4 xl:-left-12
+              `}
+                        >
+                            <ChevronLeft className="h-6 w-6" />
+                        </button>
+
+                        <button
+                            onClick={() => scroll("right")}
+                            disabled={!canScrollRight}
+                            className={`
+                absolute top-1/2 -translate-y-1/2 z-10
+                hidden md:flex h-12 w-12 items-center justify-center rounded-2xl
+                bg-[#e6f4ea] text-[#1e8e3e]
+                transition-all duration-200
+                hover:bg-[#dcecd0] hover:scale-110
+                disabled:opacity-0 disabled:cursor-not-allowed
+                right-4 xl:-right-12
+              `}
+                        >
+                            <ChevronRight className="h-6 w-6" />
+                        </button>
+                    </>
+
+                    {/* Mobile Navigation Buttons */}
+                    <div className="mt-8 flex md:hidden items-center justify-center gap-4">
                         <button
                             onClick={() => scroll("left")}
                             disabled={!canScrollLeft}

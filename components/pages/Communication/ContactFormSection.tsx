@@ -7,7 +7,7 @@ export default function ContactFormSection() {
     const [userType, setUserType] = useState<"brand" | "agency">("brand");
 
     return (
-        <section className="bg-white py-20 px-4 md:px-8">
+        <section className="bg-white pt-32 pb-20 px-4 md:px-8">
             <div className="mx-auto max-w-[1240px]">
                 {/* Header */}
                 <div className="text-center mb-16">
@@ -20,7 +20,7 @@ export default function ContactFormSection() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
                     {/* Left Column: Form */}
                     <div className="lg:col-span-7 bg-white rounded-[32px] border border-[#E5E5E5] p-6 md:p-10 shadow-sm">
 
@@ -31,8 +31,8 @@ export default function ContactFormSection() {
                                 <button
                                     onClick={() => setUserType("brand")}
                                     className={`flex items-center justify-center gap-2 py-3 rounded-[12px] border transition-all ${userType === "brand"
-                                            ? "border-[#22C55E] bg-[#F0FDF4] text-black"
-                                            : "border-[#E5E5E5] bg-white text-[#999999] hover:bg-gray-50"
+                                        ? "border-[#22C55E] bg-[#F0FDF4] text-black"
+                                        : "border-[#E5E5E5] bg-white text-[#999999] hover:bg-gray-50"
                                         }`}
                                 >
                                     <div className={`w-5 h-5 rounded-full flex items-center justify-center ${userType === "brand" ? "bg-[#22C55E]" : "bg-[#E5E5E5]"}`}>
@@ -44,8 +44,8 @@ export default function ContactFormSection() {
                                 <button
                                     onClick={() => setUserType("agency")}
                                     className={`flex items-center justify-center gap-2 py-3 rounded-[12px] border transition-all ${userType === "agency"
-                                            ? "border-[#22C55E] bg-[#F0FDF4] text-black" // Using Green for active as per screenshot checkmark color
-                                            : "border-[#E5E5E5] bg-white text-[#999999] hover:bg-gray-50"
+                                        ? "border-[#22C55E] bg-[#F0FDF4] text-black" // Using Green for active as per screenshot checkmark color
+                                        : "border-[#E5E5E5] bg-white text-[#999999] hover:bg-gray-50"
                                         }`}
                                 >
                                     <div className={`w-5 h-5 rounded-full flex items-center justify-center ${userType === "agency" ? "bg-[#22C55E]" : "bg-[#E5E5E5]"}`}>
@@ -104,10 +104,10 @@ export default function ContactFormSection() {
                     </div>
 
                     {/* Right Column: Info */}
-                    <div className="lg:col-span-5">
+                    <div className="lg:col-span-5 flex flex-col h-full">
                         <h3 className="text-[20px] md:text-[32px] font-instrument font-medium text-black mb-4 md:mb-6">İletişim Bilgileri</h3>
 
-                        <div className="grid grid-cols-2 lg:block gap-3 lg:gap-0 lg:space-y-6">
+                        <div className="grid grid-cols-2 lg:flex lg:flex-col lg:justify-between lg:flex-1 gap-3 lg:gap-0">
                             {/* Contact Cards Container */}
                             <div className="flex flex-col gap-3 lg:gap-6 justify-center">
                                 {/* Phone Card */}
@@ -136,7 +136,7 @@ export default function ContactFormSection() {
                             </div>
 
                             {/* Benefits Box */}
-                            <div className="bg-white rounded-[24px] md:rounded-[32px] border border-[#E5E5E5] p-4 md:p-8 lg:mt-8 h-full flex flex-col justify-center">
+                            <div className="bg-white rounded-[24px] md:rounded-[32px] border border-[#E5E5E5] p-4 md:p-8 mt-3 lg:mt-0 lg:mb-0 h-auto flex flex-col justify-center">
                                 <ul className="space-y-3 md:space-y-5">
                                     <li className="flex items-center gap-2 md:gap-3">
                                         <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-[#22C55E] flex items-center justify-center shrink-0">
