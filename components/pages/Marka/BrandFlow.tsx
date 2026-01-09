@@ -83,7 +83,7 @@ const MarqueeRow = ({ items, direction = "left", speed = 40 }: { items: any[], d
     return (
         <div className="flex w-full overflow-hidden whitespace-nowrap py-3 md:py-4">
             <motion.div
-                className="flex items-center gap-12 md:gap-24"
+                className="flex items-center gap-6 md:gap-14"
                 animate={{
                     x: direction === "left" ? [0, -3000] : [-3000, 0]
                 }}
@@ -95,7 +95,7 @@ const MarqueeRow = ({ items, direction = "left", speed = 40 }: { items: any[], d
             >
                 {/* Repeat items many times to ensure seamless loop */}
                 {[...items, ...items, ...items].map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-12 md:gap-24 shrink-0">
+                    <div key={idx} className="flex items-center gap-8 md:gap-14 shrink-0">
                         {item.type === "brand" ? (
                             <div className="flex items-center justify-center opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-500 cursor-default min-w-[100px]">
                                 {item.src ? (
@@ -156,16 +156,12 @@ export const BrandFlow = () => {
 
     return (
         <section className="w-full bg-white py-12 md:py-0 overflow-hidden relative">
-            <div className="max-w-[1440px] mx-auto aspect-auto md:min-h-[300px] flex flex-col justify-center px-4 relative">
+            <div className="w-full md:min-h-[300px] flex flex-col justify-center relative">
                 <div className="flex flex-col gap-0 md:gap-2 relative">
                     <MarqueeRow items={row1} direction="right" speed={80} />
                     <MarqueeRow items={row2} direction="left" speed={90} />
                     <MarqueeRow items={row3} direction="right" speed={85} />
                 </div>
-
-                {/* Side Fades */}
-                <div className="absolute top-0 bottom-0 left-0 w-24 md:w-48 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
-                <div className="absolute top-0 bottom-0 right-0 w-24 md:w-48 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
             </div>
         </section>
     );
