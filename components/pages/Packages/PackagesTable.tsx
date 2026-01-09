@@ -232,15 +232,17 @@ const PackagesTable = () => {
                                     </tr>
                                 ))}
                                 <tr>
-                                    <td className="p-4 sticky left-0 bg-white z-10 border-b border-gray-100"></td>
+                                    <td className="p-4 sticky left-0 bg-white z-10"></td>
                                     {tiers.map((tier, idx) => (
-                                        <td key={idx} className={cn(
-                                            "p-10 text-center border-x border-b rounded-b-[40px] transition-all duration-300",
-                                            tier.isRecommended ? "bg-[#F0FDF4] border-[#86EFAC]" : "border-gray-100 bg-white"
-                                        )}>
-                                            <Button className="bg-[#1A1A1A] hover:bg-black text-white rounded-full px-12 py-8 w-full max-w-[220px] text-lg font-bold transition-transform hover:scale-105 shadow-lg shadow-black/10">
-                                                Bilgi Alın
-                                            </Button>
+                                        <td key={idx} className="p-0 relative">
+                                            <div className={cn(
+                                                "p-10 text-center border-x border-b rounded-b-[40px] transition-all duration-300 min-h-[160px] flex items-center justify-center",
+                                                tier.isRecommended ? "bg-[#F0FDF4] border-[#86EFAC]" : "border-gray-100 bg-white"
+                                            )}>
+                                                <Button className="bg-[#1A1A1A] hover:bg-black text-white rounded-full px-12 py-8 w-full max-w-[220px] text-lg font-bold transition-transform hover:scale-105 shadow-lg shadow-black/10">
+                                                    Bilgi Alın
+                                                </Button>
+                                            </div>
                                         </td>
                                     ))}
                                 </tr>
