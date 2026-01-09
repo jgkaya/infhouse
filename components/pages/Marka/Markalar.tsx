@@ -4,7 +4,6 @@ import BrandFlow from "./BrandFlow";
 import BrandServices from "./BrandServices";
 import SuccessStats from "./SuccessStats";
 import BrandsVideos from "./BrandsVideos";
-import Testimonials from "./Testimonials";
 
 export default function Markalar() {
     return (
@@ -16,7 +15,6 @@ export default function Markalar() {
 
             <BrandsVideos />
             <SuccessStats />
-            <Testimonials />
             <BrandServices />
 
         </>
