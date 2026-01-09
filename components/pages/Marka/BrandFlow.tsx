@@ -81,9 +81,9 @@ const CATEGORIES = [
 
 const MarqueeRow = ({ items, direction = "left", speed = 40 }: { items: any[], direction?: "left" | "right", speed?: number }) => {
     return (
-        <div className="flex w-full overflow-hidden whitespace-nowrap py-3 md:py-4">
+        <div className="flex w-full overflow-hidden whitespace-nowrap py-2 md:py-3">
             <motion.div
-                className="flex items-center gap-6 md:gap-14"
+                className="flex items-center gap-4 md:gap-10"
                 animate={{
                     x: direction === "left" ? [0, -3000] : [-3000, 0]
                 }}
@@ -95,11 +95,11 @@ const MarqueeRow = ({ items, direction = "left", speed = 40 }: { items: any[], d
             >
                 {/* Repeat items many times to ensure seamless loop */}
                 {[...items, ...items, ...items].map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-8 md:gap-14 shrink-0">
+                    <div key={idx} className="flex items-center gap-4 md:gap-10 shrink-0">
                         {item.type === "brand" ? (
-                            <div className="flex items-center justify-center opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-500 cursor-default min-w-[100px]">
+                            <div className="flex items-center justify-center opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-500 cursor-default min-w-[80px] md:min-w-[100px]">
                                 {item.src ? (
-                                    <div className="relative w-24 h-12 md:w-32 md:h-16">
+                                    <div className="relative w-20 h-10 md:w-32 md:h-16">
                                         <Image
                                             src={item.src}
                                             alt={item.name}
@@ -108,17 +108,17 @@ const MarqueeRow = ({ items, direction = "left", speed = 40 }: { items: any[], d
                                         />
                                     </div>
                                 ) : (
-                                    <span className="text-[20px] md:text-[28px] font-bold text-gray-900 tracking-tighter uppercase font-instrument-sans">
+                                    <span className="text-[18px] md:text-[28px] font-bold text-gray-900 tracking-tighter uppercase font-instrument-sans">
                                         {item.name}
                                     </span>
                                 )}
                             </div>
                         ) : (
                             <div className={`
-                                flex items-center gap-2 px-6 py-2 md:px-8 md:py-3 rounded-full border ${item.border} ${item.color} ${item.glow}
+                                flex items-center gap-1 px-3 py-1 md:px-5 md:py-1.5 rounded-full border ${item.border} ${item.color} ${item.glow}
                                 backdrop-blur-md transition-all hover:scale-105 cursor-default relative overflow-hidden
                             `}>
-                                <span className="text-black font-bold text-xs md:text-lg tracking-tight relative z-10">{item.name}</span>
+                                <span className="text-black font-bold text-[10px] md:text-sm tracking-tight relative z-10">{item.name}</span>
                                 <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent pointer-events-none" />
                             </div>
                         )}

@@ -128,146 +128,215 @@ const featureLabels = [
 
 const PackagesTable = () => {
     return (
-        <section className="py-20 px-4 md:px-8 bg-white overflow-hidden">
+        <section className="py-12 md:py-20 px-2 md:px-8 bg-white overflow-hidden">
             <div className="max-w-7xl mx-auto">
-                <div className="relative overflow-x-auto">
-                    {/* Main Table Structure */}
-                    <table className="w-full border-collapse min-w-[1000px] table-fixed">
-                        <thead>
-                            <tr>
-                                <th className="w-1/4 p-4 sticky left-0 bg-white z-10">
-                                    <div className="h-24"></div>
-                                </th>
-                                {tiers.map((tier, idx) => (
-                                    <th key={idx} className="w-1/4 p-0 relative align-bottom">
-                                        <div className={cn(
-                                            "flex flex-col items-center justify-center p-8 pt-14 rounded-t-[40px] border-t border-x transition-all duration-300 h-64",
+                {/* Desktop View - Kept exactly as before */}
+                <div className="hidden md:block">
+                    <div className="relative overflow-x-auto">
+                        <table className="w-full border-collapse min-w-[1000px] table-fixed">
+                            <thead>
+                                <tr>
+                                    <th className="w-1/4 p-4 sticky left-0 bg-white z-10">
+                                        <div className="h-24"></div>
+                                    </th>
+                                    {tiers.map((tier, idx) => (
+                                        <th key={idx} className="w-1/4 p-0 relative align-bottom">
+                                            <div className={cn(
+                                                "flex flex-col items-center justify-center p-8 pt-14 rounded-t-[40px] border-t border-x transition-all duration-300 h-64",
+                                                tier.isRecommended ? "bg-[#F0FDF4] border-[#86EFAC]" : "border-gray-100 bg-white"
+                                            )}>
+                                                {/* Status Dot */}
+                                                {tier.isRecommended && (
+                                                    <div className="absolute top-6 right-6">
+                                                        <div className="w-8 h-8 rounded-full border-2 border-[#FF4D8D]/20 flex items-center justify-center bg-white shadow-sm">
+                                                            <Star className="w-4 h-4 fill-[#FF4D8D] text-[#FF4D8D]" />
+                                                        </div>
+                                                    </div>
+                                                )}
+
+                                                <h3 className={cn("text-4xl font-bold mb-3 tracking-tight font-instrument-sans", tier.color)}>
+                                                    {tier.name}
+                                                </h3>
+
+                                                {/* Badge Container with fixed height to keep headers equal */}
+                                                <div className="h-10 flex items-center justify-center mb-4">
+                                                    {tier.isRecommended ? (
+                                                        <span className="bg-black text-white text-[11px] font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
+                                                            Önerilen Paket
+                                                        </span>
+                                                    ) : (
+                                                        <div className="h-8" />
+                                                    )}
+                                                </div>
+
+                                                <p className="text-gray-400 text-sm font-semibold tracking-wide">
+                                                    {tier.subtitle}
+                                                </p>
+                                            </div>
+                                        </th>
+                                    ))}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {featureLabels.map((label, rowIdx) => (
+                                    <tr key={rowIdx} className={rowIdx % 2 === 0 ? "bg-white" : "bg-[#F9FAFB]/50"}>
+                                        <td className="p-4 py-8 font-medium text-gray-800 relative sticky left-0 bg-inherit z-10 text-center text-sm">
+                                            {/* Animated Dashed Line Overlay for rows 1 and 2 */}
+                                            {rowIdx === 0 && (
+                                                <div className="absolute left-0 top-[40px] w-[100px] h-[120px] pointer-events-none z-20">
+                                                    <svg width="100" height="120" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ overflow: 'visible' }}>
+                                                        <path
+                                                            d="M50 15H30C20 15 15 20 15 30V45M15 75V90C15 100 20 105 30 105H50"
+                                                            stroke="#CBD5E1"
+                                                            strokeWidth="1.5"
+                                                            strokeDasharray="4 4"
+                                                            className="animate-dash-flow"
+                                                        />
+                                                        <circle cx="60" cy="15" r="2.5" fill="#94A3B8" />
+                                                        <circle cx="60" cy="105" r="2.5" fill="#94A3B8" />
+                                                        <foreignObject x="0" y="45" width="50" height="30" style={{ overflow: 'visible' }}>
+                                                            <div className="flex items-center justify-center w-full h-full">
+                                                                <div className="bg-[#FF5D8F] text-white text-[10px] font-bold px-3 py-1.5 rounded-lg shadow-md whitespace-nowrap">
+                                                                    veya
+                                                                </div>
+                                                            </div>
+                                                        </foreignObject>
+                                                    </svg>
+                                                </div>
+                                            )}
+                                            <span className="block pl-16 pr-4 relative z-10">{label}</span>
+                                        </td>
+
+                                        {tiers.map((tier, colIdx) => (
+                                            <td key={colIdx} className={cn(
+                                                "p-4 py-8 text-center border-x transition-all duration-300",
+                                                tier.isRecommended ? "bg-[#F0FDF4]/50 border-[#86EFAC]" : "border-gray-100"
+                                            )}>
+                                                {typeof tier.features[rowIdx] === "string" ? (
+                                                    <div className="text-sm text-gray-600 whitespace-pre-line leading-relaxed font-semibold">
+                                                        {tier.features[rowIdx]}
+                                                    </div>
+                                                ) : tier.features[rowIdx] ? (
+                                                    <div className="flex justify-center">
+                                                        <div className="w-8 h-8 rounded-full bg-[#10B981] flex items-center justify-center shadow-sm">
+                                                            <Check className="w-5 h-5 text-white" />
+                                                        </div>
+                                                    </div>
+                                                ) : (
+                                                    <div className="flex justify-center">
+                                                        <X className="w-6 h-6 text-gray-300 stroke-[1.5]" />
+                                                    </div>
+                                                )}
+                                            </td>
+                                        ))}
+                                    </tr>
+                                ))}
+                                <tr>
+                                    <td className="p-4 sticky left-0 bg-white z-10 border-b border-gray-100"></td>
+                                    {tiers.map((tier, idx) => (
+                                        <td key={idx} className={cn(
+                                            "p-10 text-center border-x border-b rounded-b-[40px] transition-all duration-300",
                                             tier.isRecommended ? "bg-[#F0FDF4] border-[#86EFAC]" : "border-gray-100 bg-white"
                                         )}>
-                                            {/* Status Dot */}
-                                            {tier.isRecommended && (
-                                                <div className="absolute top-6 right-6">
-                                                    <div className="w-8 h-8 rounded-full border-2 border-[#FF4D8D]/20 flex items-center justify-center bg-white shadow-sm">
-                                                        <Star className="w-4 h-4 fill-[#FF4D8D] text-[#FF4D8D]" />
-                                                    </div>
-                                                </div>
-                                            )}
-
-                                            <h3 className={cn("text-4xl font-bold mb-3 tracking-tight font-instrument-sans", tier.color)}>
-                                                {tier.name}
-                                            </h3>
-
-                                            {/* Badge Container with fixed height to keep headers equal */}
-                                            <div className="h-10 flex items-center justify-center mb-4">
-                                                {tier.isRecommended ? (
-                                                    <span className="bg-black text-white text-[11px] font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
-                                                        Önerilen Paket
-                                                    </span>
-                                                ) : (
-                                                    <div className="h-8" />
-                                                )}
-                                            </div>
-
-                                            <p className="text-gray-400 text-sm font-semibold tracking-wide">
-                                                {tier.subtitle}
-                                            </p>
-                                        </div>
-                                    </th>
-                                ))}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {featureLabels.map((label, rowIdx) => (
-                                <tr key={rowIdx} className={rowIdx % 2 === 0 ? "bg-white" : "bg-[#F9FAFB]/50"}>
-                                    <td className="p-4 py-8 font-medium text-gray-800 relative sticky left-0 bg-inherit z-10 text-center">
-                                        {/* Animated Dashed Line Overlay for rows 1 and 2 */}
-                                        {rowIdx === 0 && (
-                                            <div className="absolute left-0 top-[40px] w-[100px] h-[120px] pointer-events-none z-20">
-                                                <svg width="100" height="120" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ overflow: 'visible' }}>
-                                                    {/* The dashed path - dots are at x=50, vertical line at x=15 */}
-                                                    <path
-                                                        d="M50 15H30C20 15 15 20 15 30V45M15 75V90C15 100 20 105 30 105H50"
-                                                        stroke="#CBD5E1"
-                                                        strokeWidth="1.5"
-                                                        strokeDasharray="4 4"
-                                                        className="animate-dash-flow"
-                                                    />
-                                                    {/* Dots at the ends */}
-                                                    <circle cx="60" cy="15" r="2.5" fill="#94A3B8" />
-                                                    <circle cx="60" cy="105" r="2.5" fill="#94A3B8" />
-
-                                                    {/* "veya" Badge - shifted right */}
-                                                    <foreignObject x="0" y="45" width="50" height="30" style={{ overflow: 'visible' }}>
-                                                        <div className="flex items-center justify-center w-full h-full">
-                                                            <div className="bg-[#FF5D8F] text-white text-[10px] font-bold px-3 py-1.5 rounded-lg shadow-md whitespace-nowrap">
-                                                                veya
-                                                            </div>
-                                                        </div>
-                                                    </foreignObject>
-                                                </svg>
-                                            </div>
-                                        )}
-
-                                        <span className="block pl-16 pr-4 relative z-10">{label}</span>
-                                    </td>
-
-                                    {tiers.map((tier, colIdx) => (
-                                        <td key={colIdx} className={cn(
-                                            "p-4 py-8 text-center border-x transition-all duration-300",
-                                            tier.isRecommended ? "bg-[#F0FDF4]/50 border-[#86EFAC]" : "border-gray-100"
-                                        )}>
-                                            {typeof tier.features[rowIdx] === "string" ? (
-                                                <div className="text-sm text-gray-600 whitespace-pre-line leading-relaxed font-semibold">
-                                                    {tier.features[rowIdx]}
-                                                </div>
-                                            ) : tier.features[rowIdx] ? (
-                                                <div className="flex justify-center">
-                                                    <div className="w-8 h-8 rounded-full bg-[#10B981] flex items-center justify-center shadow-sm">
-                                                        <Check className="w-5 h-5 text-white" />
-                                                    </div>
-                                                </div>
-                                            ) : (
-                                                <div className="flex justify-center">
-                                                    <X className="w-6 h-6 text-gray-300 stroke-[1.5]" />
-                                                </div>
-                                            )}
+                                            <Button className="bg-[#1A1A1A] hover:bg-black text-white rounded-full px-12 py-8 w-full max-w-[220px] text-lg font-bold transition-transform hover:scale-105 shadow-lg shadow-black/10">
+                                                Bilgi Alın
+                                            </Button>
                                         </td>
                                     ))}
                                 </tr>
-                            ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
-                            {/* Footer row with buttons */}
-                            <tr>
-                                <td className="p-4 sticky left-0 bg-white z-10 border-b border-gray-100"></td>
-                                {tiers.map((tier, idx) => (
-                                    <td key={idx} className={cn(
-                                        "p-10 text-center border-x border-b rounded-b-[40px] transition-all duration-300",
-                                        tier.isRecommended ? "bg-[#F0FDF4] border-[#86EFAC]" : "border-gray-100 bg-white"
+                {/* Mobile View - Based on Screenshot */}
+                <div className="block md:hidden px-2 py-8">
+                    <div className="grid grid-cols-[1.2fr_1fr_1fr_1fr] bg-white rounded-[32px] overflow-hidden border border-gray-100 shadow-[0_20px_50px_rgba(0,0,0,0.15)] relative">
+                        {/* Mobile Header Row */}
+                        <div className="p-2 border-b border-gray-100 flex items-center justify-center min-h-[110px]"></div>
+                        {tiers.map((tier, idx) => (
+                            <div key={idx} className={cn(
+                                "flex flex-col items-center justify-center p-2 border-b border-gray-100 gap-1.5 relative min-h-[110px]",
+                                tier.isRecommended ? "bg-[#F0FDF4]/60 border-x border-[#86EFAC] z-10 shadow-[0_0_20px_rgba(34,197,94,0.1)]" : "bg-white"
+                            )}>
+                                {tier.isRecommended && (
+                                    <div className="absolute top-2 right-2">
+                                        <div className="w-5 h-5 rounded-full bg-white flex items-center justify-center shadow-[0_2px_8px_rgba(244,63,94,0.3)] border border-[#F43F5E]/10">
+                                            <Star className="w-2.5 h-2.5 fill-[#F43F5E] text-[#F43F5E]" />
+                                        </div>
+                                    </div>
+                                )}
+                                <h3 className={cn("text-sm font-bold font-instrument-sans text-center mb-0.5", tier.color)}>
+                                    {tier.name}
+                                </h3>
+                                <p className="text-[9px] text-gray-400 text-center font-semibold leading-tight px-1">
+                                    {tier.subtitle}
+                                </p>
+                            </div>
+                        ))}
+
+                        {/* Feature Rows */}
+                        {featureLabels.map((label, rowIdx) => (
+                            <React.Fragment key={rowIdx}>
+                                {/* Feature Title Cell */}
+                                <div className={cn(
+                                    "p-3 py-5 flex items-center text-[11px] font-bold text-gray-800 leading-tight border-b border-gray-50",
+                                    rowIdx % 2 !== 0 && "bg-gray-50/30"
+                                )}>
+                                    {label}
+                                </div>
+                                {/* Package Status Cells */}
+                                {tiers.map((tier, colIdx) => (
+                                    <div key={colIdx} className={cn(
+                                        "flex items-center justify-center p-2 border-b border-gray-50 relative",
+                                        tier.isRecommended ? "bg-[#F0FDF4]/90 border-x border-[#86EFAC]/60 z-10 shadow-[0_0_15px_rgba(34,197,94,0.05)]" : (rowIdx % 2 !== 0 ? "bg-gray-50/30" : "bg-white")
                                     )}>
-                                        <Button className="bg-[#1A1A1A] hover:bg-black text-white rounded-full px-12 py-8 w-full max-w-[220px] text-lg font-bold transition-transform hover:scale-105 shadow-lg shadow-black/10">
-                                            Bilgi Alın
-                                        </Button>
-                                    </td>
+                                        {typeof tier.features[rowIdx] === "string" ? (
+                                            <div className="text-[9px] text-gray-700 font-bold text-center leading-[1.3] whitespace-pre-line px-1">
+                                                {tier.features[rowIdx]}
+                                            </div>
+                                        ) : tier.features[rowIdx] ? (
+                                            <div className="w-5 h-5 rounded-full bg-[#10B981] flex items-center justify-center shadow-[0_2px_6px_rgba(16,185,129,0.3)]">
+                                                <Check className="w-3 h-3 text-white stroke-[3]" />
+                                            </div>
+                                        ) : (
+                                            <div className="opacity-20">
+                                                <X className="w-4 h-4 text-gray-400 stroke-[2.5]" />
+                                            </div>
+                                        )}
+                                    </div>
                                 ))}
-                            </tr>
-                        </tbody>
-                    </table>
+                            </React.Fragment>
+                        ))}
+
+                        {/* Footer Button Row */}
+                        <div className="p-3 min-h-[80px]"></div>
+                        {tiers.map((tier, idx) => (
+                            <div key={idx} className={cn(
+                                "p-3 flex items-center justify-center min-h-[80px] relative rounded-b-[32px]",
+                                tier.isRecommended ? "bg-[#F0FDF4]/60 border-x border-[#86EFAC] z-10 shadow-[0_10px_20px_rgba(34,197,94,0.1)] mb-[-1px]" : "bg-white"
+                            )}>
+                                <button className={cn(
+                                    "text-white text-[9px] font-bold rounded-xl px-2 py-2.5 w-full transition-all duration-300 shadow-md transform hover:scale-105 active:scale-95",
+                                    tier.isRecommended ? "bg-black shadow-[0_4px_12px_rgba(0,0,0,0.2)]" : "bg-[#1A1A1A]"
+                                )}>
+                                    Bilgi Alın!
+                                </button>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
 
             <style jsx global>{`
-        @keyframes dashFlow {
-          from {
-            stroke-dashoffset: 20;
-          }
-          to {
-            stroke-dashoffset: 0;
-          }
-        }
-        .animate-dash-flow {
-          animation: dashFlow 2s linear infinite;
-        }
-      `}</style>
+                @keyframes dashFlow {
+                    from { stroke-dashoffset: 20; }
+                    to { stroke-dashoffset: 0; }
+                }
+                .animate-dash-flow {
+                    animation: dashFlow 2s linear infinite;
+                }
+            `}</style>
         </section>
     );
 };
