@@ -168,16 +168,16 @@ export const WorkHero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.8 }}
-                // Added top-[180px], responsive width calc, and mx-auto
+                // Restored original positioning and width
                 className="relative z-40 text-center bg-white px-6 md:px-10 py-4 md:py-5 rounded-full shadow-xl -mb-[40px] md:-mb-[60px] top-[140px] md:top-[180px] w-[95%] md:w-[calc(100%-300px)] lg:w-[calc(100%-170px)] mx-auto"
             >
-                {/* Updated text size to [60px] on md screens */}
-                <h1 className="text-xl md:text-[60px] font-bold text-red-500/90 tracking-tighter leading-tight">
+                {/* Kept reduced text size but restored original structure */}
+                <h1 className="text-xl md:text-[42px] font-bold text-red-500/90 tracking-tighter leading-tight">
                     Gerçek içerikler, <span className="text-red-300">ölçümlenebilir sonuçlar!</span>
                 </h1>
             </motion.div>
 
-            {/* Stats Section added below */}
+            {/* Stats Section with restored top offset */}
             <div className="relative z-30 w-full bg-[#fbfaf7] py-16 flex flex-col items-center justify-center text-center top-[150px] pt-32">
                 <div className="max-w-4xl px-4 space-y-4">
                     <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-2xl md:text-4xl font-bold text-gray-800">
