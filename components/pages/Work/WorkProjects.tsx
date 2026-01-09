@@ -26,7 +26,7 @@ const PROJECTS = [
         id: 4,
         title: "Bueno Shoes",
         subtitle: "Babalar Günü",
-        videoSrc: "https://video.e-adam.net/download/web-videos/58dce20d-775e-4121-8db8-a073b89e5cc7-1080.mp4", // Placeholder
+        videoSrc: "https://video.e-adam.net/download/web-videos/470313c9-adae-4c97-bbcd-007d86772902-2160.mp4", // Placeholder
     },
     {
         id: 5,
@@ -36,27 +36,21 @@ const PROJECTS = [
     },
     {
         id: 6,
-        title: "A Roasting Lab",
-        subtitle: "Mama Yardımı",
+        title: "Daily Shot",
+        subtitle: "Nasıl Hissediyoruz",
         videoSrc: "https://video.e-adam.net/download/web-videos/683337a4-9aa4-4095-9014-f832bdcf7306-1080.mp4", // Placeholder
     },
     {
         id: 7,
-        title: "Avni Erel",
-        subtitle: "Tadım Challange",
+        title: "Hiwell",
+        subtitle: "App Senaryoları",
         videoSrc: "https://video.e-adam.net/download/web-videos/cfa91dbe-481a-4fbf-8874-2aee01ae58f3-1080.mp4", // Placeholder
     },
     {
         id: 8,
-        title: "Bueno Shoes",
-        subtitle: "Babalar Günü",
+        title: "Paulmark",
+        subtitle: "Lovemark Stand",
         videoSrc: "https://video.e-adam.net/download/web-videos/a4884561-2ac1-4287-be86-e71938a0c842-1080.mp4", // Placeholder
-    },
-    {
-        id: 9,
-        title: "Chipsm",
-        subtitle: "Tadım Challange",
-        videoSrc: "https://video.e-adam.net/download/web-videos/19962a47-eaf8-438e-97f6-75e8c66a754f-1080.mp4", // Placeholder
     }
 ];
 
