@@ -63,20 +63,20 @@ export const CarouselInf = () => {
 
             // Desktop variants
             const desktopVariants = [
-                { x: -300, y: 30, rotate: -15, scale: 0.9, zIndex: 1 },  // Far Left
-                { x: -160, y: 10, rotate: -7, scale: 0.95, zIndex: 2 }, // Left
-                { x: 0, y: 0, rotate: 0, scale: 1.1, zIndex: 10 },      // Center
-                { x: 160, y: 10, rotate: 7, scale: 0.95, zIndex: 2 },   // Right
-                { x: 300, y: 30, rotate: 15, scale: 0.9, zIndex: 1 },   // Far Right
+                { x: -300, y: 30, rotate: -15, scale: 0.9, zIndex: 1, translateZ: -50 },  // Far Left
+                { x: -160, y: 10, rotate: -7, scale: 0.95, zIndex: 2, translateZ: -20 }, // Left
+                { x: 0, y: 0, rotate: 0, scale: 1.1, zIndex: 10, translateZ: 50 },      // Center
+                { x: 160, y: 10, rotate: 7, scale: 0.95, zIndex: 2, translateZ: -20 },   // Right
+                { x: 300, y: 30, rotate: 15, scale: 0.9, zIndex: 1, translateZ: -50 },   // Far Right
             ];
 
             // Mobile variants - more compact and centered
             const mobileVariants = [
-                { x: -145, y: 30, rotate: -16, scale: 0.65, zIndex: 1 },  // Far Left
-                { x: -80, y: 15, rotate: -8, scale: 0.75, zIndex: 2 },    // Left
-                { x: 0, y: 0, rotate: 0, scale: 0.85, zIndex: 10 },       // Center
-                { x: 80, y: 15, rotate: 8, scale: 0.75, zIndex: 2 },      // Right
-                { x: 145, y: 30, rotate: 16, scale: 0.65, zIndex: 1 },    // Far Right
+                { x: -145, y: 30, rotate: -16, scale: 0.65, zIndex: 1, translateZ: -30 },  // Far Left
+                { x: -80, y: 15, rotate: -8, scale: 0.75, zIndex: 2, translateZ: -10 },    // Left
+                { x: 0, y: 0, rotate: 0, scale: 0.85, zIndex: 10, translateZ: 30 },       // Center
+                { x: 80, y: 15, rotate: 8, scale: 0.75, zIndex: 2, translateZ: -10 },      // Right
+                { x: 145, y: 30, rotate: 16, scale: 0.65, zIndex: 1, translateZ: -30 },    // Far Right
             ];
 
             // Use window width to determine which variant set to use
@@ -133,7 +133,13 @@ export const CarouselInf = () => {
             </div>
 
             {/* Cards Fan Section */}
-            <div className="relative w-full max-w-[1200px] h-[200px] md:h-[500px] flex justify-center items-center perspective-[1000px]">
+            <div
+                className="relative w-full max-w-[1200px] h-[200px] md:h-[500px] flex justify-center items-center"
+                style={{
+                    perspective: "1000px",
+                    transformStyle: "preserve-3d"
+                }}
+            >
                 {CARDS.map((card, index) => (
                     <motion.div
                         key={card.id}
@@ -148,6 +154,8 @@ export const CarouselInf = () => {
                         )}
                         style={{
                             boxShadow: "0 20px 50px rgba(0,0,0,0.2)",
+                            backfaceVisibility: "hidden",
+                            WebkitBackfaceVisibility: "hidden"
                         }}
                     >
                         <div className="relative w-full h-full bg-gray-200">
