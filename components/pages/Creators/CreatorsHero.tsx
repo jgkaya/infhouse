@@ -85,11 +85,11 @@ export default function CreatorsHero() {
     }, []);
 
     return (
-        <section id="icerik-ureticileri" className="relative w-full min-h-[500px] md:min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#fbfaf7] pt-4 pb-8 md:py-16">
+        <section id="icerik-ureticileri" className="relative w-full min-h-[600px] md:min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#fbfaf7] pt-24 pb-8 md:py-16">
             {/* Background Gradients */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(34,197,94,0.15),transparent_55%),radial-gradient(ellipse_at_bottom_right,rgba(236,72,153,0.12),transparent_55%)]" />
 
-            <div ref={containerRef} className="relative w-full max-w-[1400px] h-[500px] md:h-[800px] mx-auto px-4">
+            <div ref={containerRef} className="relative w-full max-w-[1400px] h-[550px] md:h-[800px] mx-auto px-4">
                 {/* Bubbles */}
                 {bubbles.map((bubble, i) => (
                     <Bubble key={i} {...bubble} isMobile={isMobile} />

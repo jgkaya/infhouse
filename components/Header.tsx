@@ -37,7 +37,7 @@ export default function Header() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-[1180px] px-4"
+        className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-[100] w-full max-w-[1180px] px-4"
       >
         <div className="relative flex items-center justify-between rounded-full bg-white/90 backdrop-blur-md px-2 md:px-4 py-2 shadow-[0_8px_32px_rgba(0,0,0,0.08)] ring-1 ring-black/5">
           {/* inner highlight */}
@@ -117,14 +117,14 @@ export default function Header() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-black/10 backdrop-blur-sm z-40 md:hidden"
+              className="fixed inset-0 bg-black/10 backdrop-blur-sm z-[110] md:hidden"
             />
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-[90%] max-w-[400px] bg-white z-50 md:hidden overflow-y-auto rounded-l-[40px] shadow-2xl"
+              className="fixed top-0 right-0 bottom-0 w-[90%] max-w-[400px] bg-white z-[120] md:hidden overflow-y-auto rounded-l-[40px] shadow-2xl"
             >
               <div className="flex flex-col p-8 pt-10 h-full">
                 {/* Close Button Inside (Optional, but good for UX) */}
