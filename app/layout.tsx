@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Instrument_Sans, Inter_Tight } from "next/font/googl
 import "./globals.css";
 import Chatbot from "@/components/Chatbot";
 import Footer from "@/components/Footer";
+import CustomCursor from "@/components/CustomCursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,6 +43,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <Chatbot />
+        <CustomCursor />
       </body>
     </html>
   );

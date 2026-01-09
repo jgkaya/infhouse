@@ -32,7 +32,7 @@ const VIDEO_STORIES = [
         tag: "Oto Aksesuar",
     },
     {
-        videoSrc: "https://video.e-adam.net/download/web-videos/683337a4-9aa4-4095-9014-f832bdcf7306-1080.mp4",
+        videoSrc: "https://video.e-adam.net/download/web-videos/8007721f-b0c1-417f-bc74-3afe6fd31b54-1080.mp4",
         userAvatar: "https://cdn.e-adam.net/infhouse/bloved.png",
         userName: "Bahar Balkaya",
         userTitle: "B-Love",
@@ -96,7 +96,7 @@ function VideoStoryCard({ data }: { data: typeof VIDEO_STORIES[0] }) {
                 </div>
 
                 {/* Play/Pause Button Overlay */}
-                <div className={`absolute inset-0 flex items-center justify-center z-10 transition-opacity duration-300 ${isPlaying ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'}`}>
+                <div className={`absolute inset-0 flex items-center justify-center z-10 transition-opacity duration-300 ${isPlaying ? 'opacity-0' : 'opacity-100'}`}>
                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white transition-transform hover:scale-110 shadow-[0px_0px_36.1px_0px_#AFF2AD]">
                         {isPlaying ? (
                             <Play className="h-5 w-5 text-[#AFF2AD] fill-[#AFF2AD] ml-1" />

@@ -122,6 +122,8 @@
     @apply border-border outline-ring/50;
   }
 
+  /* cursor debug rule removed */
+
   body {
     @apply bg-background text-foreground;
   }
@@ -192,4 +194,19 @@
   .animate-scroll-mobile {
     animation: scroll-mobile 10s linear infinite;
   }
+}
+
+/* GLOBAL CURSOR FORCE - OUTSIDE LAYERS */
+html,
+body,
+*,
+*::before,
+*::after,
+a,
+button,
+input,
+select,
+textarea,
+[role="button"] {
+  cursor: none !important;
 }
