@@ -301,7 +301,7 @@ function PersonCard({ data }: { data: typeof CREATORS[0] }) {
 
 function InfoCards() {
     return (
-        <div className="my-16 grid gap-6 md:grid-cols-3">
+        <div className="my-8 grid gap-6 md:grid-cols-3">
             {/* Card 1 */}
             <div className="rounded-[24px] bg-[#fdfdfd] p-6 text-left ring-1 ring-black/5">
                 <div className="mb-4 grid h-10 w-10 place-items-center rounded-xl bg-green-100 text-green-600">
@@ -518,7 +518,7 @@ function CarouselRow({ children, scrollStep = 320 }: { children: ReactNode, scro
 
 export default function StatsShowcase() {
     return (
-        <section className="bg-[#fbfaf7] py-24">
+        <section className="bg-[#fbfaf7] py-10">
             <div className="mx-auto max-w-[1180px] px-4">
 
                 {/* SECTION 1: CREATORS */}
@@ -541,7 +541,7 @@ export default function StatsShowcase() {
                 <InfoCards />
 
                 {/* SECTION 3: INFLUENCERS */}
-                <div className="mt-32">
+                <div className="mt-16">
                     <SectionHeader
                         pinkText="100'lerce"
                         blackText="Influencer İş Birliği"
@@ -558,7 +558,7 @@ export default function StatsShowcase() {
                 </div>
 
                 {/* SECTION 4: VIDEO STORIES */}
-                <div className="relative mt-32">
+                <div className="relative mt-16">
                     <SectionHeader
                         pinkText="15.000'den"
                         blackText={

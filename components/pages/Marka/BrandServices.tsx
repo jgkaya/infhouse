@@ -84,12 +84,12 @@ const BrandServices = () => {
     };
 
     return (
-        <section className="w-full bg-[#FAFAFA] py-12 md:py-16 overflow-hidden">
+        <section className="w-full bg-[#FAFAFA] py-10 overflow-hidden">
             <div className="max-w-[1440px] mx-auto px-4 md:px-6">
                 {/* Header */}
-                <div className="flex flex-col items-center text-center mb-16 max-w-4xl mx-auto">
+                <div className="flex flex-col items-center text-center mb-8 max-w-4xl mx-auto">
                     <h2
-                        className="text-[28px] md:text-[60px] font-medium tracking-[-0.05em] leading-[1.2] md:leading-[70px] text-center font-instrument-sans text-transparent bg-clip-text mb-4 md:mb-20 pb-2"
+                        className="text-[28px] md:text-[60px] font-medium tracking-[-0.05em] leading-[1.2] md:leading-[70px] text-center font-instrument-sans text-transparent bg-clip-text mb-3 md:mb-4 pb-2"
                         style={{ backgroundImage: 'linear-gradient(91.38deg, #FFDADE 2.28%, #FF627B 99.98%)' }}
                     >
                         Sunduğumuz Hizmetler
@@ -164,7 +164,7 @@ const BrandServices = () => {
                 </div>
 
                 {/* Desktop View: Full Grid */}
-                <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                     {SERVICES.map((service, idx) => (
                         <div
                             key={idx}

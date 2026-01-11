@@ -323,10 +323,10 @@ export default function HomeHero() {
       <div className="absolute inset-0 bg-[#fbfaf7]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_left,rgba(34,197,94,0.12),transparent_55%),radial-gradient(ellipse_at_right,rgba(34,197,94,0.12),transparent_55%),radial-gradient(ellipse_at_bottom,rgba(236,72,153,0.10),transparent_60%)]" />
 
-      <div className="relative mx-auto max-w-[1180px] px-4 pt-28 pb-12 md:pt-32 md:pb-28">
+      <div className="relative mx-auto max-w-[1180px] px-4 pt-28 pb-12 md:pt-10 md:pb-12">
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-32">
           {/* LEFT */}
-          <div className="flex flex-col items-center lg:items-start text-center lg:text-left md:pt-[20%]">
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}

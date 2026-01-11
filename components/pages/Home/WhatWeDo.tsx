@@ -71,7 +71,7 @@ export default function WhatWeDo() {
     };
 
     return (
-        <section className="bg-[#fbfaf7] py-20 overflow-hidden">
+        <section className="bg-[#fbfaf7] py-10 overflow-hidden">
             <div className="mx-auto max-w-[1180px] px-4">
                 {/* Header */}
                 <div className="text-center mb-12">

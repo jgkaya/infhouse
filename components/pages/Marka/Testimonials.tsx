@@ -99,8 +99,8 @@ export default function Testimonials() {
     };
 
     return (
-        <section className="bg-[#fbfaf7] py-16 md:py-32 px-4 md:px-12 overflow-hidden relative">
-            <div className="max-w-[1400px] mx-auto text-center mb-12 md:mb-24 px-4">
+        <section className="bg-[#fbfaf7] py-10 px-4 md:px-12 overflow-hidden relative">
+            <div className="max-w-[1400px] mx-auto text-center mb-4 md:mb-6 px-4">
                 <h2 className="text-[24px] md:text-[72px] font-bold tracking-tight leading-[1.2] font-instrument">
                     <span className="bg-gradient-to-r from-[#FFDADE] to-[#FF6C79] bg-clip-text text-transparent">Müşterilerimiz</span> Ne Diyor?
                 </h2>
@@ -159,7 +159,7 @@ export default function Testimonials() {
             </div>
 
             {/* Navigation */}
-            <div className="mt-8 md:mt-12 flex flex-col items-center gap-8">
+            <div className="mt-4 md:mt-6 flex flex-col items-center gap-8">
                 <div className="flex items-center gap-6 md:gap-10">
                     <button
                         onClick={prev}

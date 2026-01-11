@@ -124,37 +124,37 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-[90%] max-w-[400px] bg-white z-[120] md:hidden overflow-y-auto rounded-l-[40px] shadow-2xl"
+              className="fixed top-0 right-0 bottom-0 w-[75%] max-w-[260px] bg-white z-[120] md:hidden overflow-y-auto rounded-l-[32px] shadow-2xl"
             >
-              <div className="flex flex-col p-8 pt-10 h-full">
+              <div className="flex flex-col p-5 pt-8 h-full">
                 {/* Close Button Inside (Optional, but good for UX) */}
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="absolute top-8 right-8 p-2 text-gray-400 hover:text-black transition-colors"
+                  className="absolute top-6 right-6 p-2 text-gray-400 hover:text-black transition-colors"
                 >
-                  <X size={28} />
+                  <X size={24} />
                 </button>
 
                 {/* Analyz Pill */}
-                <div className="mb-10">
+                <div className="mb-8">
                   <Link href="/sosyal-medya-analizi" onClick={() => setIsOpen(false)}>
                     <img
                       src={ANALIZ_PILL_URL}
                       alt="Sosyal Medya Analiz"
-                      className="h-12 w-auto"
+                      className="h-10 w-auto"
                       draggable={false}
                     />
                   </Link>
                 </div>
 
                 {/* Nav Links */}
-                <nav className="flex flex-col gap-6 mb-12">
+                <nav className="flex flex-col gap-4 mb-8">
                   {navItems.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className="text-2xl font-medium text-gray-400 hover:text-black transition-colors"
+                      className="text-lg font-medium text-gray-400 hover:text-black transition-colors"
                     >
                       {item.label}
                     </Link>
@@ -162,40 +162,40 @@ export default function Header() {
                 </nav>
 
                 {/* Action Buttons */}
-                <div className="flex flex-col gap-4 mb-12">
-                  <button className="flex items-center justify-between w-full bg-[#1A1A1A] text-white rounded-full px-6 py-4 font-medium transition-transform hover:scale-[1.02]">
-                    <span className="text-lg">Sizi arayalım</span>
-                    <ArrowRight size={20} className="text-white/70" />
+                <div className="flex flex-col gap-3 mb-8">
+                  <button className="flex items-center justify-between w-full bg-[#1A1A1A] text-white rounded-full px-5 py-3 font-medium transition-transform hover:scale-[1.02]">
+                    <span className="text-sm">Sizi arayalım</span>
+                    <ArrowRight size={16} className="text-white/70" />
                   </button>
-                  <button className="w-full bg-white border border-gray-200 text-black rounded-full px-6 py-4 font-medium text-lg transition-transform hover:scale-[1.02]">
+                  <button className="w-full bg-white border border-gray-200 text-black rounded-full px-5 py-3 font-medium text-sm transition-transform hover:scale-[1.02]">
                     Formu Doldurun
                   </button>
                 </div>
 
                 {/* Contact Section */}
                 <div className="mt-auto">
-                  <h3 className="text-[40px] font-bold mb-6 text-black">İletişim</h3>
-                  <div className="flex flex-col gap-3">
+                  <h3 className="text-2xl font-bold mb-4 text-black">İletişim</h3>
+                  <div className="flex flex-col gap-2.5">
                     {/* Phone */}
-                    <div className="flex items-center gap-4 bg-[#B4E3FF] rounded-2xl p-4">
-                      <div className="w-6 h-6 flex items-center justify-center">
-                        <Phone size={20} fill="currentColor" className="text-black" />
+                    <div className="flex items-center gap-3 bg-[#B4E3FF] rounded-xl p-3">
+                      <div className="w-5 h-5 flex items-center justify-center">
+                        <Phone size={16} fill="currentColor" className="text-black" />
                       </div>
-                      <span className="font-semibold text-black">+90 (262) 606 18 65</span>
+                      <span className="font-semibold text-sm text-black">+90 (262) 606 18 65</span>
                     </div>
                     {/* Email */}
-                    <div className="flex items-center gap-4 bg-[#FFB4C0] rounded-2xl p-4">
-                      <div className="w-6 h-6 flex items-center justify-center">
-                        <Mail size={20} fill="currentColor" className="text-black" />
+                    <div className="flex items-center gap-3 bg-[#FFB4C0] rounded-xl p-3">
+                      <div className="w-5 h-5 flex items-center justify-center">
+                        <Mail size={16} fill="currentColor" className="text-black" />
                       </div>
-                      <span className="font-semibold text-black">hello@infhouse.co</span>
+                      <span className="font-semibold text-sm text-black">hello@infhouse.co</span>
                     </div>
                     {/* Location */}
-                    <div className="flex items-center gap-4 bg-[#FFECB4] rounded-2xl p-4">
-                      <div className="w-6 h-6 flex items-center justify-center">
-                        <MapPin size={20} fill="currentColor" className="text-black" />
+                    <div className="flex items-center gap-3 bg-[#FFECB4] rounded-xl p-3">
+                      <div className="w-5 h-5 flex items-center justify-center">
+                        <MapPin size={16} fill="currentColor" className="text-black" />
                       </div>
-                      <span className="font-semibold text-black">İstanbul, Türkiye</span>
+                      <span className="font-semibold text-sm text-black">İstanbul, Türkiye</span>
                     </div>
                   </div>
                 </div>
